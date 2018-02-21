@@ -1,1 +1,81 @@
-theme: jekyll-theme-merlot
+# Site settings
+title: ⌘鸡哥⌘的博客!!!
+description: "⌘鸡哥⌘的博客"
+baseurl: "" # for test: remove string '/space-jekyll-template' to ''
+url: "http://xukim777.github.io" # for test: remove string 'http://victorvoid.github.io' to '' but in production: 'https://yourusername.githu.io'
+
+# User settings
+username: ⌘鸡哥⌘的博客
+user_title: xukimseven
+email: xujinqi7@gmail.com
+twitter_username: xukim777
+github_username:  xukimseven
+gplus_id: 105826454454986533202
+# linkedin_public_url: loremipsum # Example: For public profile 'www.linkedin.com/in/john-smith', 'john-smith' is your linkedin_public_url
+# disqus_username: loremipsum
+profile_picture: https://wx1.sinaimg.cn/mw690/006aIYjJgy1fnkmk70xbij30jg0jgwg0.jpg
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+
+# html minify
+compress_html:
+  clippings: all
+  comments: all
+  endings: []
+  profile: false
+
+# Links to include in menu navigation
+links:
+  section_1:
+    - title: 首 页
+      url: /
+      key_trigger: ✘
+    - title: 博 文
+      url: /posts
+      key_trigger: ✘
+    - title: 分 类
+      url: /series
+      key_trigger: ✘
+    - title: 标 签
+      url: /tags
+      key_trigger: ✘
+    # - title: 关 于
+    #   url: /about
+    #   key_trigger: 5
+  section_2:
+  #   - title: 小气的王二狗
+  #     url: ../../https://warrest.github.io
+  #     new_tab: true
+  #     key_trigger: 友情链接
+    - title: 关于鸡哥
+      url: /about
+      key_trigger: ✰
+    - title: 友情链接
+      url: "/friend"
+      key_trigger: ☭ #WARNING: search only works with "s"
+
+# # projects in header index
+# projects:
+#   - name: fluany
+#     url: https://github.com/fluany/fluany
+#   - name: vim-frontend
+#     url: https://github.com/victorvoid/vim-frontend
+#   - name: generator-capybara
+#     url: https://github.com/victorvoid/generator-capybara 
+
+# # exclude my node related stuff
+# exclude: ['package.json', 'src', 'node_modules']
+
+# 代码高亮
+highlighter: pygments
+
+# # 百度统计 ID
+# baidu-analysis: efa555a0adb0eca621754fde118fb358
+
+# Comment
+# comment:
+#     disqus: xujinqi7
+#     uyan: 2156347  # 有言id,登录有言官网申请
