@@ -1,8 +1,8 @@
 # Site settings 配置站点
-title: '廖柯宇的独立博客'
-description: '昵称悟空，千禧一代，前端开发者/伪极客/灵魂摄影师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。'
-keyword: '廖柯宇, 廖柯宇的独立博客, 廖柯宇的博客, 前端, 前端开发, 前端博客, javascript, vuejs, nodejs, 设计'
-url: 'http://liaokeyu.com' # your host
+title: '⌘鸡哥⌘的博客'
+description: ''
+keyword: '徐金琦, 徐金琦的独立博客, 徐金琦的博客, 前端,  前端博客, javascript, 操作系统, ubuntu, 网络'
+url: 'https://xukim777.github.io' # your host
 
 # if you don't need baseurl, you should leave this value blank.
 baseurl: ''
@@ -14,13 +14,13 @@ nav:
 
 # Footer
 footer:
-  since: 2017
+  since: 2018
 
 # Author 配置博主信息
-author: '廖柯宇'
-nickname: '悟空'
-bio: '前端开发者，热爱技术&设计，简单乐观爱创造'
-avatar: '/assets/img/profile.png'
+author: '徐金琦'
+nickname: '鸡哥'
+bio: '一个大三的小学生'
+avatar: '/assets/img/profile.jpeg'
 
 # Search
 search: true
@@ -30,7 +30,7 @@ nightMode: true
 
 # Comments
 disqus: false
-disqus_url: 'https://liaokeyu.disqus.com/embed.js'
+disqus_url: 'https://xukimseven.disqus.com/embed.js'
 
 livere: true
 livere_uid: MTAyMC8yODEwMC80Njcz
@@ -57,11 +57,11 @@ postPatterns: 'circuitBoard'
 
 # SNS settings 配置社交网站url: email, weibo, zhihu, twitter, instagram, juejin, github, douban, facebook, dribble, uicn, jianshu, medium, linkedin
 sns:
-  email: 'mailto:ray.eldath@aol.com'
-  weibo: '//weibo.com/lovecolcol'
-  juejin: '//juejin.im/user/57a6f434165abd006159b4cc'
-  instagram: '//www.instagram.com/steveliaocn'
-  github: '//github.com/kaeyleo'
+  email: 'mailto:xujinqi7@gmail.com'
+  weibo: '//weibo.com/u/5655278647'
+  twitter: '//twitter.com/xukim777'
+  instagram: '//www.instagram.com/xukim777'
+  github: '//github.com/xukimseven'
 
 # Tags 设置标签
 recommend-tags: true # whether or not display recommend-tags on the sidebar
@@ -87,3 +87,6 @@ permalink: /:year/:month/:day/:title.html
 
 # Plugins
 plugins: [jekyll-paginate]
+
+# Hero background patterns
+postPatterns: 'food'
