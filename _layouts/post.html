@@ -1,52 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-    {% include head.html %}
-    
-    <body>
-        
-        {% include svg-icons.html %}
-        {% include header-post.html %}
-        {% include tree-posts.html %}
-        <section class="post" itemscope itemtype="http://schema.org/BlogPosting">
-            {% if page.date %}
-                <div class="time">
-                    <time itemprop="datePublished" datetime="{{ page.date }}">{{ page.date | date_to_string }}</time>
-                </div>
-            {% endif %}
-            <h1 class="post-title" itemprop="name">{{ page.title }}</h1>
-        
-            <article role="article" id="scroll" class="post-content" itemprop="articleBody">
-                {{ content }}
-            </article>
-        
-            
-        
-            {% include share.html %}
-            
-        
-        
-            {% include footer.html %}
-            {% include scripts.html %}
-            <div class="go">
-                
-                <div class="box" style="font-family:'abysregular';">
-                    <a title="返回至顶部" class="top" href="#gotop" target="_self">top</a>
-                    
-                </div> 
-                <div class="box">
-                    <a>-----</a>
-                    
-                </div> 
-                <div class="box" style="font-family:'abysregular';">
-                    <a title="返回至底部" class="bottom" href="#gobottom" target="_self">foot </a>
-                    
-                </div>      
-            
-            </div>
-        
-        </section>
+---
+layout: default
+---
+<article class="post">
 
-            
-    
-    </body>
-</html>
+	{% if page.external-url %}
+		<h1>
+			<a href="{{ page.external-url }}">{{ page.title }}</a> 
+			<a class="anchor" href="{{ page.url }}"><i class="icon-anchor"></i></a>
+		</h1>
+	{% else %}
+		<h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
+	{% endif %}
+
+	<div class="post-content">{{ content }}</div>
+
+	<p class="meta">Posted on <span class="postdate">{{ page.date | date: "%b %d, %Y" }}</span></p>
+
+</article>
