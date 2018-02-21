@@ -29,7 +29,7 @@ search: true
 nightMode: true
 
 # Comments
-disqus: false
+disqus: true
 disqus_url: 'https://xukimseven.disqus.com/embed.js'
 
 livere: true
