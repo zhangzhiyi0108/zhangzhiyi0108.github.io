@@ -56,6 +56,10 @@ links:
     - title: 友情链接
       url: "/friend"
       key_trigger: ☭ #WARNING: search only works with "s"
+    - title: 同步更新
+      url: "https://xukimseven.github.io"
+      key_trigger: ✰
+
 
 # # projects in header index
 # projects:
