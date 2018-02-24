@@ -1,89 +1,81 @@
-# Site settings 配置站点
-title: '廖柯宇的独立博客'
-description: '昵称悟空，千禧一代，前端开发者/伪极客/灵魂摄影师，热爱技术&设计。很高兴能在这里与你分享我对技术和生活的思考。'
-keyword: '廖柯宇, 廖柯宇的独立博客, 廖柯宇的博客, 前端, 前端开发, 前端博客, javascript, vuejs, nodejs, 设计'
-url: 'http://liaokeyu.com' # your host
+# Site settings
+title: ⌘鸡哥⌘的博客!!!
+description: "⌘鸡哥⌘的博客"
+baseurl: "" # for test: remove string '/space-jekyll-template' to ''
+url: "http://xukim777.github.io" # for test: remove string 'http://victorvoid.github.io' to '' but in production: 'https://yourusername.githu.io'
 
-# if you don't need baseurl, you should leave this value blank.
-baseurl: ''
-
-# Navigation links
-nav:
-  home: '/'
-  tags: '/tags.html'
-
-# Footer
-footer:
-  since: 2017
-
-# Author 配置博主信息
-author: '廖柯宇'
-nickname: '悟空'
-bio: '前端开发者，热爱技术&设计，简单乐观爱创造'
-avatar: '/assets/img/profile.png'
-
-# Search
-search: true
-
-# Night mode
-nightMode: true
-
-# Comments
-disqus: false
-disqus_url: 'https://liaokeyu.disqus.com/embed.js'
-
-livere: true
-livere_uid: MTAyMC8yODEwMC80Njcz
-
-# Reward 赞赏功能 by Ray-Eldath
-reward:
-  enable: true
-  reward_comment: '真诚赞赏 手有余香'
-  wechatpay: 'http://ray-eldath.image.alimmdn.com/basic/wechatpay.jpg'
-  alipay: 'http://ray-eldath.image.alimmdn.com/basic/alipay.jpg'
-
-# b2t 回到顶部 by Ray-Eldath
-b2t: true
-
-# Share
-social-share: true
-social-share-items: ['wechat', 'weibo', 'douban', 'twitter']
-
-# theme color 主题皮肤
-theme-color: 'default'  # pink or default
-
-# Post header background patterns (when the post no cover): circuitBoard, overlappingCircles, food, glamorous, ticTacToe, seaOfClouds
-postPatterns: 'circuitBoard'
-
-# SNS settings 配置社交网站url: email, weibo, zhihu, twitter, instagram, juejin, github, douban, facebook, dribble, uicn, jianshu, medium, linkedin
-sns:
-  email: 'mailto:ray.eldath@aol.com'
-  weibo: '//weibo.com/lovecolcol'
-  juejin: '//juejin.im/user/57a6f434165abd006159b4cc'
-  instagram: '//www.instagram.com/steveliaocn'
-  github: '//github.com/kaeyleo'
-
-# Tags 设置标签
-recommend-tags: true # whether or not display recommend-tags on the sidebar
-recommend-condition-size: 12 # a tag will be recommended if the size of it is more than this value
+# User settings
+username: ⌘鸡哥⌘的博客
+user_title: xukimseven
+email: xujinqi7@gmail.com
+twitter_username: xukim777
+github_username:  xukimseven
+gplus_id: 105826454454986533202
+# linkedin_public_url: loremipsum # Example: For public profile 'www.linkedin.com/in/john-smith', 'john-smith' is your linkedin_public_url
+# disqus_username: loremipsum
+profile_picture: https://wx1.sinaimg.cn/mw690/006aIYjJgy1fnkmk70xbij30jg0jgwg0.jpg
 
 # Build settings
-paginate: 6
-paginate_path: 'page:num'
-exclude: ['node_modules', 'dev', 'package.json', 'gulpfile.js', '.gitignore', 'README.md']
-
-# Markdown
 markdown: kramdown
 highlighter: rouge
-kramdown:
-  input: GFM
+permalink: /:title/
 
-# RSS
-RSS: false
+# html minify
+compress_html:
+  clippings: all
+  comments: all
+  endings: []
+  profile: false
 
-# Permalink
-# See: https://github.com/kaeyleo/jekyll-theme-H2O/issues/35
-permalink: /:year/:month/:day/:title.html
+# Links to include in menu navigation
+links:
+  section_1:
+    - title: 首 页
+      url: /
+      key_trigger: ✘
+    - title: 博 文
+      url: /posts
+      key_trigger: ✘
+    - title: 分 类
+      url: /series
+      key_trigger: ✘
+    - title: 标 签
+      url: /tags
+      key_trigger: ✘
+    # - title: 关 于
+    #   url: /about
+    #   key_trigger: 5
+  section_2:
+  #   - title: 小气的王二狗
+  #     url: ../../https://warrest.github.io
+  #     new_tab: true
+  #     key_trigger: 友情链接
+    - title: 关于鸡哥
+      url: /about
+      key_trigger: ✰
+    - title: 友情链接
+      url: "/friend"
+      key_trigger: ☭ #WARNING: search only works with "s"
 
-# Plugins
-plugins: [jekyll-paginate]
+# # projects in header index
+# projects:
+#   - name: fluany
+#     url: https://github.com/fluany/fluany
+#   - name: vim-frontend
+#     url: https://github.com/victorvoid/vim-frontend
+#   - name: generator-capybara
+#     url: https://github.com/victorvoid/generator-capybara 
+
+# # exclude my node related stuff
+# exclude: ['package.json', 'src', 'node_modules']
+
+# 代码高亮
+highlighter: pygments
+
+# # 百度统计 ID
+# baidu-analysis: efa555a0adb0eca621754fde118fb358
+
+# Comment
+# comment:
+#     disqus: xujinqi7
+#     uyan: 2156347  # 有言id,登录有言官网申请

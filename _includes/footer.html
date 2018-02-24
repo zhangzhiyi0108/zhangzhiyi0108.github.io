@@ -1,15 +1,5 @@
-{% if site.b2t %}
-  {% include b2t.html %}
-{% endif %}
+<footer>
 
-<footer class="g-footer">
-  <section>{{ site.title }} ©
-  {% assign current = "now" | date: "%Y" | plus: 0%}
-  {% unless site.footer.since and site.footer.since == current %}
-    {{ site.footer.since }}
-    -
-  {% endunless %}
-  {{ current }}
-  </section>
-  <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme H2O</a></section>
+	<p><span id="heart">☭</span> © 2018 徐金琦 ⌘鸡哥⌘ <span id="heart">✯</span></p>
+
 </footer>
