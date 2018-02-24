@@ -1,7 +1,7 @@
 ---
 layout: default
 header-img: "assets/img/hero.jpg"
-description: "Sorry, Page Not Found :(</br>对不起，没找到页面 :("
+description: "Sorry, Page Not Found :("
 ---
 
 {% include header.html %}
@@ -10,7 +10,7 @@ description: "Sorry, Page Not Found :(</br>对不起，没找到页面 :("
     <div class="post-wrapper">
         <h1>404</h1>
         <span class="subheading">{{ page.description }}</span>
-        <a href="{{ "/" | relative_url }}" class="btn">Back to home</a>
+        <a href="{{ site.nav.home }}" class="btn">Back to home</a>
     </div>
 </header>
 
