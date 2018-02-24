@@ -1,13 +1,15 @@
 ---
 layout: post
 title:  "夸夸AlphaRacks公司"
-image: ''
+
 date:   2018-1-25 22:55:13
 tags:
 - 网络
+- CentOS
 description: ''
 categories:
 - 日记
+
 typora-root-url: ..
 ---
 
