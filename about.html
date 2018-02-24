@@ -1,26 +1,69 @@
 ---
-layout: minimal
-title: "About me"
-permalink: /about/index.html
-description: "Some description about Victor Igor..."
+title: aboutMe
+layout: default
 ---
 
-<img itemprop="image" class="img-rounded about_perfil" src=" https://wx1.sinaimg.cn/mw690/006aIYjJgy1fnkmk70xbij30jg0jgwg0.jpg" alt="My profile">
+{% include header.html %}
 
-<!-- <h2>My projects</h2>
-
-<div class="aboutme">
-	<ul class="recent">
-		{% for project in site.projects %}
-	    	<li><a href="{{ project.url}}"><h3 class="project-name" itemprop="name">{{ project.name }}</h3></a></li>
-	    {% endfor %}
-	</ul>
-</div> -->
-
-<div style="text-align: center;">
-	<h2>我叫鸡哥</h2>
-	<h3>鸡哥性别，男</h3>
-	<h3>原名，徐金琦</h3>
-	<h3>2018年了，我还是个在宁波读书的大三学生。</h3>
-
+<div class="g-banner tags-banner {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }}" data-theme="{{ site.theme-color }}">
+    <h2>aboutMe</h2>
 </div>
+
+<main class="tags-content">
+
+    <ul class="tags-list">
+        
+        <li  style="text-align: center;">
+                <div class="byMyself" style="margin:0 auto;">
+                    <div class="avatar">
+                        <img src="{{ site.avatar | absolute_url }}" alt="">
+                    </div>
+
+                    </br>
+
+                    <div class="author-name" rel="author" style="font-weight: bolder;">{{ site.author }}</div>
+                    <div class="bio">
+                        <p>{{ site.bio }}</p>
+                    </div>
+                    
+                    </br>
+
+                    {% if site.sns.size > 0 %}
+                    <ul id="sns-links" class="sns-links">
+                        {% for s in site.sns %}
+                        
+                            <a href="{{ s[1] }}" target="_blank">
+                                <i class="iconfont icon-{{ s[0] }}"></i>
+                            </a>
+                        
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    <div class="bio">
+                        <p></p>
+                    </div>
+
+                    </br>
+
+                    {% if site.recommend-tags and site.tags.size>0 %}
+                        {% for tag in site.tags %}
+                        <a href="#{{ tag[0] }}" class="tag">{{ tag[0]}}</a>
+                        {% endfor %}
+                    {% endif %}
+          
+            </div>
+        </li>
+        
+        <li>
+        <!-- {% if site.recommend-tags and site.tags.size>0 %}
+            {% for tag in site.tags %}
+            <a href="#{{ tag[0] }}" class="tag">{{ tag[0]}}</a>
+            {% endfor %}
+        {% endif %} -->
+        </li>
+
+    </ul>
+</main>
+    
+{% include footer.html %}

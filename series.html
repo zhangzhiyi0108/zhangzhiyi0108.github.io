@@ -1,29 +1,34 @@
 ---
-layout: minimal
-title: "Series"
-permalink: /series/index.html
-image: '/assets/img/series.png'
-description: "Take a look at my series..."
+title: Series
+layout: default
 ---
 
-<h2>分 类</h2>
-{% for tag in site.categories %}
-  <span class="tag-title" id="{{ tag[0] | slugify }}">{{ tag[0] | capitalize }}</span>
-  <ul class="post-list">
-    {% assign pages_list = tag[1] %}
-    {% for post in pages_list reversed %}
-      {% if post.title != null %}
-      {% if group == null or group == post.group %}
-      <li>
-          <a title="Post's my title" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}
-              <span class="entry-date">
-              <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %d, %Y" }}</time>
-          </a>
-      </li>
-      {% endif %}
-      {% endif %}
-    {% endfor %}
-    {% assign pages_list = nil %}
-    {% assign group = nil %}
+{% include header.html %}
+
+<div class="g-banner tags-banner {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }}" data-theme="{{ site.theme-color }}">
+    <h2>SERIES</h2>
+</div>
+
+<main class="tags-content">
+
+    <ul class="tags-list">
+        <li>
+        {% if site.recommend-tags and site.categories.size>0 %}
+            {% for tag in site.categories %}
+            <a href="#{{ tag[0] }}" class="tag">{{ tag[0]}}</a>
+            {% endfor %}
+        {% endif %}
+        </li>
+        {% for tag in site.categories %}
+        <li>
+            <span class="tag-name" id="{{ tag[0] }}">「{{ tag[0] }}」</span>
+            {% for post in tag[1] %}
+            <a class="tag-post" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+            {% endfor %}
+        </li>
+        
+        {% endfor%}
   </ul>
-{% endfor %}
+</main>
+    
+{% include footer.html %}

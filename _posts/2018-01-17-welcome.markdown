@@ -1,10 +1,10 @@
 ---
 layout: post
 title:  "Welcome to XuKimSeven's Blog!"
-image: ''
+
 date:   2018-1-17 18:04:13
 tags:
-- try
+
 description: ''
 categories:
 - test 

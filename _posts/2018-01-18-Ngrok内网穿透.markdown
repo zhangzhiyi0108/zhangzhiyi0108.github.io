@@ -1,13 +1,16 @@
 ---
 layout: post
 title:  "Ngrok内网穿透！！"
-image: ''
+
 date:   2018-1-18 20:04:13
 tags:
 - 网络
+- CentOS
 description: ''
 categories:
 - 经验 
+- 操作系统
+
 typora-root-url: ..
 ---
 
