@@ -1,26 +1,51 @@
 ---
-layout: minimal
-title: "About me"
-permalink: /about/index.html
-description: "Some description about Victor Igor..."
+layout: page
+title: "About"
+description: "Hey, this is Hux."
+header-img: "img/about-bg-walle.jpg"
+multilingual: true
 ---
 
-<img itemprop="image" class="img-rounded about_perfil" src=" https://wx1.sinaimg.cn/mw690/006aIYjJgy1fnkmk70xbij30jg0jgwg0.jpg" alt="My profile">
+<!-- Language Selector -->
+<select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+    <option value="0" selected> 中文 Chinese </option>
+    <option value="1"> 英文 English </option>
+</select>
 
-<!-- <h2>My projects</h2>
-
-<div class="aboutme">
-	<ul class="recent">
-		{% for project in site.projects %}
-	    	<li><a href="{{ project.url}}"><h3 class="project-name" itemprop="name">{{ project.name }}</h3></a></li>
-	    {% endfor %}
-	</ul>
-</div> -->
-
-<div style="text-align: center;">
-	<h2>我叫鸡哥</h2>
-	<h3>鸡哥性别，男</h3>
-	<h3>原名，徐金琦</h3>
-	<h3>2018年了，我还是个在宁波读书的大三学生。</h3>
-
+<!-- Chinese Version -->
+<div class="zh post-container">
+    {% capture about_zh %}{% include about/zh.md %}{% endcapture %}
+    {{ about_zh | markdownify }}
 </div>
+
+<!-- English Version -->
+<div class="en post-container">
+    {% capture about_en %}{% include about/en.md %}{% endcapture %}
+    {{ about_en | markdownify }}
+</div>
+
+
+{% if site.disqus_username %}
+<!-- disqus 评论框 start -->
+<div class="comment">
+    <div id="disqus_thread" class="disqus-thread">
+
+    </div>
+</div>
+<!-- disqus 评论框 end -->
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "{{site.disqus_username}}";
+    var disqus_identifier = "{{site.disqus_username}}/{{page.url}}";
+    var disqus_url = "{{site.url}}{{page.url}}";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+{% endif %}
