@@ -636,7 +636,9 @@
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  background-color: #f6f8fa;
+  /*背景色改动*/
+  /*background-color: #f6f8fa;*/
+  background-color: #fafbfc;
   border-radius: 3px;
 }
 
