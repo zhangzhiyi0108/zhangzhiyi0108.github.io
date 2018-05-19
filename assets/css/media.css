@@ -39,7 +39,7 @@
       width: 90%;
       height: auto;
   }
-  ..tags-list li{
+  .tags-list li{
     padding: 5px;
   }
   .post-cover{
