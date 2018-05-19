@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/media.css">
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/rouge.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Ubuntu" rel="stylesheet">
+    <title>前端自定义字体总结</title>
+</head>
+
+<body>
+    <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+<header id="index-header">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/">talkCock</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/">首页</a></li>
+              
+                <li><a href="/tags.html">标签</a></li>
+              
+                <li><a href="/resume/index.html">关于鸡哥</a></li>
+              
+                <li><a href="/friendLink.html">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/img/boot.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/img/boot.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/resume/index.html"><li>关于鸡哥</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">前端自定义字体总结</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s">author&nbsp;&nbsp;|&nbsp;&nbsp;talkCock</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s"></span> -->
+</div>
+
+<div class="markdown-body">
+  <p>​	不论是网页还是其他的应用，在前端开发中往往会涉及到特殊字体的设置。仅仅只是用微软雅黑或者是宋体等等已经满足不了日常设计的需求了。所以使用特定的“font-family”在前端开发中有着一定的意义。</p>
+
+<p>​	本人在使用Github的博客时接触到了自定义好看的英文字体，并对此有一些总结。总结如下。</p>
+
+<h4 id="一百度或google查找喜欢的字体">一、百度或google查找喜欢的字体</h4>
+
+<p>比如以下这个网站介绍了15款好看的英文字体，并且给出了字体的下载链接。</p>
+
+<p><a href="https://www.qianduanmei.com/15-Professional-New-Free-Fonts-for-Designers/">15个专业级英文字体</a></p>
+
+<p>在下载之后得到字体的<strong>ttf</strong>或者<strong>otf</strong>文件。这是用于系统安装使用字体的文件。如果想要在本机系统环境使用这些字体，则只需双击安装即可。</p>
+
+<p>如果想要使用在页面前端开发中，还需要经过一些处理。</p>
+
+<h4 id="二利用在线转换的网站对ttf进行处理">二、利用在线转换的网站，对ttf进行处理</h4>
+
+<p>进入如下网站 <a href="http://www.freefontconverter.com/">freefontconverter</a></p>
+
+<p>将之前下载的<strong>ttf</strong>或<strong>otf</strong>文件上传至网站后，点击<strong>font converter</strong>字样即可下载，得到几个额外文件。</p>
+
+<p>以 ffad_mator字体为例：</p>
+
+<p><img src="/assets/img/2018-03-05-前端字体总结/1.png" alt="1" /></p>
+
+<p>点击上图“Select a font file to convert”上传字体ttf或otf文件，之后点击“Font Convrt”下载得到一个压缩包。</p>
+
+<p>解压获得如下文件</p>
+
+<p><img src="/assets/img/2018-03-05-前端字体总结/2.png" alt="2" /></p>
+
+<h4 id="三编写html与css文件">三、编写html与CSS文件</h4>
+
+<p>首先将解压获得的文件夹放置在fonts文件夹中，并创建想要文件，文件树状图如下。</p>
+
+<p><img src="/assets/img/2018-03-05-前端字体总结/3.png" alt="3" /></p>
+
+<p>首先编写<strong>css</strong>文件</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* ffad_matro字体  */</span>
+<span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'ffad_matroregular'</span><span class="p">;</span>
+    <span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/ffad_matro/ffad_matro-webfont.eot')</span><span class="p">;</span> <span class="c">/* IE9 Compat Modes */</span>
+    <span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/ffad_matro/ffad_matro-webfont.eot?#iefix')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'embedded-opentype'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/ffad_matro/ffad_matro-webfont.woff2')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff2'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/ffad_matro/ffad_matro-webfont.woff')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff'</span><span class="p">),</span><span class="c">/* Modern Browsers */</span>
+         <span class="sx">url('../fonts/ffad_matro/ffad_matro-webfont.ttf')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'truetype'</span><span class="p">),</span><span class="c">/* Safari, Android, iOS */</span>
+         <span class="sx">url('../fonts/ffad_matro/ffad_matro-webfont.svg#ffad_matroregular')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'svg'</span><span class="p">);</span><span class="c">/* Legacy iOS */</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+    <span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>然后编写html文件，并关联二者</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+	<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;title&gt;</span>英文字体<span class="nt">&lt;/title&gt;</span>
+	<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"css/1.css"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+	<span class="nt">&lt;a</span> <span class="na">style=</span><span class="s">"font-family: ffad_matroregular"</span><span class="nt">&gt;</span>
+		ffad_matroregular
+	<span class="nt">&lt;/a&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>这样，就可以在网页中显示出自定义英文字体了</p>
+
+<p><img src="/assets/img/2018-03-05-前端字体总结/4.png" alt="4" /></p>
+
+<p>这就是网页中的相关显示了。</p>
+
+<hr />
+
+<p>推荐几个好看的英文字体。如要下载字体，欢迎到本人的<a href="https://github.com/xukimseven/myGitCloud/tree/master/fonts">Github</a>进行下载使用。</p>
+
+<p>css源码：</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">/* 英文字体 */</span>
+
+<span class="c">/* Abys字体 （做标题不错，而且字母全是大写的）*/</span>
+<span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'abysregular'</span><span class="p">;</span>
+    <span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/abys/abys-regular.woff2')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff2'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/abys/abys-regular.woff')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff'</span><span class="p">);</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+    <span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="c">/* ffad_matro字体 （潇洒的英文字体） */</span>
+<span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'ffad_matroregular'</span><span class="p">;</span>
+    <span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/ffad_matro/ffad_matro-webfont.eot')</span><span class="p">;</span> <span class="c">/* IE9 Compat Modes */</span>
+    <span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/ffad_matro/ffad_matro-webfont.eot?#iefix')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'embedded-opentype'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/ffad_matro/ffad_matro-webfont.woff2')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff2'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/ffad_matro/ffad_matro-webfont.woff')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff'</span><span class="p">),</span><span class="c">/* Modern Browsers */</span>
+         <span class="sx">url('../fonts/ffad_matro/ffad_matro-webfont.ttf')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'truetype'</span><span class="p">),</span><span class="c">/* Safari, Android, iOS */</span>
+         <span class="sx">url('../fonts/ffad_matro/ffad_matro-webfont.svg#ffad_matroregular')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'svg'</span><span class="p">);</span><span class="c">/* Legacy iOS */</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+    <span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="c">/* fofermedium字体 （类似于漫画字体，字体小） */</span>
+<span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'fofermedium'</span><span class="p">;</span>
+    <span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/fofer/fofer-webfont.woff2')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff2'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/fofer/fofer-webfont.woff')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff'</span><span class="p">);</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+    <span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="c">/* love-trust字体  （和fofermedium字体很像）*/</span>
+<span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'love-trustregular'</span><span class="p">;</span>
+    <span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/love-trust/love-trust.eot')</span><span class="p">;</span>
+    <span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/love-trust/love-trust.eot?#iefix')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'embedded-opentype'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/love-trust/love-trust.woff2')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff2'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/love-trust/love-trust.woff')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/love-trust/love-trust.ttf')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'truetype'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/love-trust/love-trust.svg#ffad_matroregular')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'svg'</span><span class="p">);</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+    <span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="c">/* rockfireregular字体 （中规中矩） */</span>
+ <span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'rockfireregular'</span><span class="p">;</span>
+    <span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/rockfire/rockfire-regular-webfont.woff2')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff2'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/rockfire/rockfire-regular-webfont.woff')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff'</span><span class="p">);</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+    <span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+
+<span class="c">/* wolf-in-the-city-light字体 （所谓的英文花体） */</span>
+<span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'wolf-in-the-city-lightregular'</span><span class="p">;</span>
+    <span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/wolf-in-the-city-light/wolf-in-the-city-light.eot')</span><span class="p">;</span>
+    <span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/wolf-in-the-city-light/wolf-in-the-city-light.eot?#iefix')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'embedded-opentype'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/wolf-in-the-city-light/wolf-in-the-city-light.woff2')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff2'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/wolf-in-the-city-light/wolf-in-the-city-light.woff')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/wolf-in-the-city-light/wolf-in-the-city-light.ttf')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'truetype'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/wolf-in-the-city-light/wolf-in-the-city-light.svg#ffad_matroregular')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'svg'</span><span class="p">);</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+    <span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="c">/* yellowtail字体  （另一种花体）*/</span>
+<span class="k">@font-face</span> <span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'yellowtailregular'</span><span class="p">;</span>
+    <span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/yellowtail/yellowtail-regular.eot')</span><span class="p">;</span>
+    <span class="nl">src</span><span class="p">:</span> <span class="sx">url('../fonts/yellowtail/yellowtail-regular.eot?#iefix')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'embedded-opentype'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/yellowtail/yellowtail-regular.woff2')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff2'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/yellowtail/yellowtail-regular.woff')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/yellowtail/yellowtail-regular.ttf')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'truetype'</span><span class="p">),</span>
+         <span class="sx">url('../fonts/yellowtail/yellowtail-regular.svg#ffad_matroregular')</span> <span class="n">format</span><span class="p">(</span><span class="s2">'svg'</span><span class="p">);</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+    <span class="nl">font-style</span><span class="p">:</span> <span class="nb">normal</span><span class="p">;</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>网页显示效果如下图：</p>
+
+<p><img src="/assets/img/2018-03-05-前端字体总结/5.png" alt="5" /></p>
+
+<p>有的适合用于标题，有的适合用于正文，有的用于插图。看个人喜好，不喜勿喷。</p>
+
+<hr />
+
+<p>​	如果看到这篇文章还有什么疑问想要寻求帮助的，欢迎联系本人。微博、qq、微信在文章末尾处。欢迎来告诉我你的想法。</p>
+
+<p>​	如需转载，请注明出处，谢谢。</p>
+
+</div>
+<footer id="bottom">
+  ⌘鸡哥⌘的博客 ©
+  
+  
+  2018
+</footer>
+
+
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 5,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+
+</body>
+</html>

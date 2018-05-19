@@ -4,6 +4,9 @@ description: 'Just for fun !'
 keyword: '徐金琦, 徐金琦的独立博客, 徐金琦的博客, 前端,  前端博客, javascript, 操作系统, ubuntu, 网络'
 url: 'https://xukimseven.github.io' # your host
 
+# 博主
+author: 'talkCock'
+
 # 分页
 paginate: 6
 paginatepath: ['page:num']
@@ -22,3 +25,10 @@ nav:
 
 # 网站是否需要搜索
 search: true
+
+# Markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+# 代码高亮
+highlighter: rouge

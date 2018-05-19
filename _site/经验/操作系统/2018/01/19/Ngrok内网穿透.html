@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/media.css">
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/rouge.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Ubuntu" rel="stylesheet">
+    <title>Ngrok内网穿透！！</title>
+</head>
+
+<body>
+    <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+<header id="index-header">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/">talkCock</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/">首页</a></li>
+              
+                <li><a href="/tags.html">标签</a></li>
+              
+                <li><a href="/resume/index.html">关于鸡哥</a></li>
+              
+                <li><a href="/friendLink.html">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/img/boot.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/img/boot.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/resume/index.html"><li>关于鸡哥</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">Ngrok内网穿透！！</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s">author&nbsp;&nbsp;|&nbsp;&nbsp;talkCock</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s"></span> -->
+</div>
+
+<div class="markdown-body">
+  <h3 id="centos7amd64服务器--windows客户端--ssh-secure-shell-client远程连接linux工具--ngrok-配置-内网穿透">CentOS7(amd64)服务器 + windows客户端 + SSH Secure Shell Client远程连接Linux工具 + ngrok 配置 内网穿透</h3>
+
+<!--more-->
+
+<h3 id="前言">前言：</h3>
+
+<p>​	有些小伙伴会问说，内网穿透是干嘛的，做什么事情要用到内网穿透啊？</p>
+
+<p>​	其实刚开始，本人并不知道有这么一回事情，只是有件事情特烦。就是在学校的寝室里用mstsc远程不了阿里云的服务器，这让我一个想要学习网站搭建“小学生”来说可谓是烦到爆。每次想要测试一下，就要将电脑连接到手机热点，这样才能连上服务器，来传东西。过程繁琐，耗流量网速还慢。</p>
+
+<p>​	一天，一个室友Y咪咪说，你用内网穿透啊，我弄好了，现在自己电脑就是服务器，到哪只要有网就能连到自己的电脑，可远程，可挂网站，还剩去了传文件的繁琐过程。对于这种好事，我是不会放过的。所以，我就和我另一个室友小气的王二狗搞起了内网穿透。</p>
+
+<h3 id="1准备">1、准备</h3>
+
+<p>一台云服务器,一个域名,并且域名解析到云服务器,并且服务器的操作系统为CentOS7(amd64)</p>
+
+<h3 id="2安装环境">2、安装环境</h3>
+
+<p>安装gcc和git（用于下载ngrok源码）</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nb">install </span>gcc <span class="nt">-y</span> 
+yum <span class="nb">install </span>git <span class="nt">-y</span>
+</code></pre></div></div>
+
+<h3 id="3安装go语言环境">3、安装go语言环境</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nb">install</span> <span class="nt">-y</span> mercurial git bzr subversion golang golang-pkg-windows-amd64 golang-pkg-windows-386
+</code></pre></div></div>
+
+<h3 id="4检查环境安装">4、检查环境安装</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nt">--version</span> //<span class="o">(</span> <span class="o">&gt;=</span> 1.7 <span class="o">)</span>
+go version
+</code></pre></div></div>
+
+<h3 id="5在服务器上搭建ngrok服务">5、在服务器上搭建Ngrok服务</h3>
+
+<h4 id="51下载ngrok源码">5.1.下载ngrok源码</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/inconshreveable/ngrok.git
+</code></pre></div></div>
+
+<h4 id="52生成证书">5.2.生成证书</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>ngrok
+</code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#这里修改为自己的域名</span>
+<span class="nb">export </span><span class="nv">NGROK_DOMAIN</span><span class="o">=</span><span class="s2">"abc.com"</span>
+
+openssl genrsa <span class="nt">-out</span> rootCA.key 2048
+
+openssl req <span class="nt">-x509</span> <span class="nt">-new</span> <span class="nt">-nodes</span> <span class="nt">-key</span> rootCA.key <span class="nt">-subj</span> <span class="s2">"/CN=</span><span class="nv">$NGROK_DOMAIN</span><span class="s2">"</span> <span class="nt">-days</span> 5000 <span class="nt">-out</span> rootCA.pem
+
+openssl genrsa <span class="nt">-out</span> device.key 2048
+
+openssl req <span class="nt">-new</span> <span class="nt">-key</span> device.key <span class="nt">-subj</span> <span class="s2">"/CN=</span><span class="nv">$NGROK_DOMAIN</span><span class="s2">"</span> <span class="nt">-out</span> device.csr
+
+openssl x509 <span class="nt">-req</span> <span class="nt">-in</span> device.csr <span class="nt">-CA</span> rootCA.pem <span class="nt">-CAkey</span> rootCA.key <span class="nt">-CAcreateserial</span> <span class="nt">-out</span> device.crt <span class="nt">-days</span> 5000
+</code></pre></div></div>
+
+<h4 id="53将新生成的证书替换执行下面命令后-y-回车-一行一行执行代码">5.3.将新生成的证书替换，执行下面命令后 “y” 回车 一行一行执行代码！</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>rootCA.pem assets/client/tls/ngrokroot.crt
+</code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>device.crt assets/server/tls/snakeoil.crt
+</code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>device.key assets/server/tls/snakeoil.key
+</code></pre></div></div>
+
+<h3 id="6编译生成ngrokd服务端">6、编译生成ngrokd（服务端）</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">GOOS</span><span class="o">=</span>linux <span class="nv">GOARCH</span><span class="o">=</span>amd64 make release-server
+</code></pre></div></div>
+
+<p>​	生成在~/ngrok/bin/目录中</p>
+
+<h3 id="7编译生成ngrok客户端">7、编译生成ngrok（客户端）</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">GOOS</span><span class="o">=</span>windows <span class="nv">GOARCH</span><span class="o">=</span>amd64 make release-client
+</code></pre></div></div>
+
+<p>​	生成在~/ngrok/bin/windows_amd64/目录中</p>
+
+<h3 id="8用ssh-secure-shell-client工具">8、用<strong>SSH Secure Shell Client</strong>工具</h3>
+
+<p>将~/ngrok/bin/windows_amd64/里的文件下载到本地Windows下，如D:\ngrok</p>
+
+<h3 id="9在dngrok中新建文件改名为-ngrokcfg">9、在D:\ngrok中新建文件，改名为 <strong>ngrok.cfg</strong></h3>
+
+<p>文件中输入：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server_addr: <span class="s2">"abc.com:8083"</span> // 8083 监控端口
+trust_host_root_certs: <span class="nb">false
+</span>tunnels:
+  
+  http:
+subdomain: <span class="s2">"www"</span>
+proto:
+http: <span class="s2">"80"</span>     // http 端口 <span class="nv">httpAddr</span><span class="o">=</span><span class="s2">":80"</span>
+
+  https:
+subdomain: <span class="s2">"www"</span>
+proto:
+https: <span class="s2">"443"</span>   // https 端口 <span class="nv">httpsAddr</span><span class="o">=</span><span class="s2">":443"</span>
+
+  ssh:
+remote_port: 2222
+proto:
+tcp: <span class="s2">"22"</span>              
+
+  mstsc:
+remote_port: 52222   // 远程开启52222或其他，只要不冲突  
+proto:
+tcp: <span class="s2">"192.168.1.7:3389"</span> // 本地windows的ip以及远程访问端口3389<span class="o">(</span>默认<span class="o">)</span>
+
+</code></pre></div></div>
+
+<p>以上 8083 80 443 与 远程开启的端口一致，</p>
+
+<p><strong>根据自己的实际情况在服务器后台安全组规则中开启或删除。</strong></p>
+
+<h3 id="10开启远程服务">10、开启远程服务</h3>
+
+<p>在ngrok目录中</p>
+
+<p>如果不在</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>ngrok
+</code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> ./bin/ngrokd <span class="nt">-domain</span><span class="o">=</span><span class="s2">"abc.com"</span>  <span class="nt">-httpAddr</span><span class="o">=</span><span class="s2">":80"</span> <span class="nt">-httpsAddr</span><span class="o">=</span><span class="s2">":443"</span> <span class="nt">-tunnelAddr</span><span class="o">=</span><span class="s2">":8083"</span> &amp; 
+</code></pre></div></div>
+
+<p>这里的端口号与config文件对应，视情况而定</p>
+
+<p>[16:05:23 CST 2018/01/09][INFO] (ngrok/log.(*PrefixLogger).Info:83) [registry][tun] No affinity cache specified</p>
+
+<p>[16:05:23 CST 2018/01/09][INFO] (ngrok/log.Info:112) Listening for public http connections on [::]:<strong>80</strong></p>
+
+<p>[16:05:23 CST 2018/01/09][INFO] (ngrok/log.Info:112) Listening for public https connections on [::]:<strong>443</strong></p>
+
+<p>[16:05:23 CST 2018/01/09][INFO] (ngrok/log.Info:112) Listening for control and proxy connections on [::]:<strong>8083</strong></p>
+
+<p>[16:05:23 CST 2018/01/09][INFO] (ngrok/log.(*PrefixLogger).Info:83) [metrics] Reporting every 30 seconds</p>
+
+<hr />
+
+<p>显示此为成功开启</p>
+
+<h3 id="11开启客户机服务">11、开启客户机服务</h3>
+
+<p>在Windows中D:\ngrok新建文件 改名 start.bat</p>
+
+<p>输入：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ngrok <span class="nt">-config</span><span class="o">=</span>ngrok.cfg start http https ssh mstsc
+</code></pre></div></div>
+
+<p>直接双击运行</p>
+
+<p>ngrok</p>
+
+<p>Tunnel Status                 online</p>
+
+<p>Version                       1.7/1.7</p>
+
+<p>Forwarding                    http://www.abc.com -&gt; 127.0.0.1:80</p>
+
+<p>Forwarding                    https://www.abc.com -&gt; 127.0.0.1:443</p>
+
+<p>Forwarding                    tcp://abc.com:2222 -&gt; 127.0.0.1:22</p>
+
+<p>Forwarding                    tcp://abc.com:52222 -&gt; 192.168.1.7:3389</p>
+
+<p>Web Interface                 127.0.0.1:4040</p>
+
+<p>Conn                        0</p>
+
+<p>Avg Conn Time                 0ms</p>
+
+<hr />
+
+<p>表示成功，</p>
+
+<h4 id="不成功的话看看自己的开启端口是否与config文件中对应"><strong>不成功的话看看自己的开启端口是否与config文件中对应</strong></h4>
+
+<h4 id="或查看服务器的远程端口是否在安全组中打开"><strong>或查看服务器的远程端口是否在安全组中打开</strong></h4>
+
+<h4 id="这很重要"><strong>！！！这很重要！！！</strong></h4>
+
+<hr />
+
+<h3 id="关于ngrok在远程开机自启问题">关于ngrok在远程开机自启问题</h3>
+
+<p>服务器后台开机启动运行ngrok服务端：</p>
+
+<p>1.以下内容新建一个 <strong>start.sh</strong> 文件  放到  ~/ngrok/start.sh</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/ngrok/bin/ngrokd <span class="nt">-domain</span><span class="o">=</span><span class="s2">"abc.com"</span>  <span class="nt">-httpAddr</span><span class="o">=</span><span class="s2">":80"</span> <span class="nt">-httpsAddr</span><span class="o">=</span><span class="s2">":443"</span> <span class="nt">-tunnelAddr</span><span class="o">=</span><span class="s2">":8083"</span> &amp;
+</code></pre></div></div>
+
+<p>给权限：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod </span>755 ~/ngrok/start.sh
+</code></pre></div></div>
+
+<p>2.新建ngrok启动脚本文件</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>vi /etc/init.d/ngrok
+</code></pre></div></div>
+
+<p>文件内容：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>!/bin/sh
+
+BEGIN INIT INFO
+
+Provides:          ngrok
+
+Required-Start:
+
+Required-Stop:
+
+Default-Start:     2 3 4 5
+
+Default-Stop:      0 1 6
+
+Short-Description: Start or stop the ngrok Proxy.
+
+END INIT INFO
+
+ngrok_path=~/ngrok/
+
+case "$1" in
+
+    start)
+            echo "start ngrok service.."
+            sh ${ngrok_path}/start.sh
+            ;;
+   *)
+    exit 1
+    ;;
+esac
+</code></pre></div></div>
+
+<p>提示 : 运行sudo vi /etc/init.d/ngrok之后  ！！直接按键盘 I 进入编辑模式，然后复制下面内容 然后 “esc” “:” “wq” “!”  “回车”  意思是保存退出！</p>
+
+<p>3.ngrok脚本文件 给权限</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /etc/init.d
+<span class="nb">chmod </span>755 ngrok
+</code></pre></div></div>
+
+<p>4.添加启动服务 ngrok</p>
+
+<p>chkconfig –add  ngrok</p>
+
+<p>5.测试服务是否能启动成功</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service ngrok start
+</code></pre></div></div>
+
+<p>6.查看自启动的服务 是否有 nrgok ！！</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chkconfig    
+</code></pre></div></div>
+
+<p>执行这个代码如果出现后面的就OK了！！   <strong>ngrok                  0:off        1:off        2:on        3:on        4:on        5:on        6:off</strong></p>
+
+<p><strong>服务器ngrok的服务端开机自动启动成功了！！！</strong></p>
+
+<hr />
+
+<p>​	这样一来，自己的电脑就成 了一台服务器，只要电脑不关，且连着网的话，就非常适合做一个小型网站的测试平台了。</p>
+
+<p>​	如果看到这篇文章还有什么疑问想要寻求帮助的，欢迎联系本人。微博、qq、微信在文章末尾处。欢迎来告诉我你的想法。</p>
+
+<p>​	如需转载，请注明出处，谢谢。</p>
+
+</div>
+<footer id="bottom">
+  ⌘鸡哥⌘的博客 ©
+  
+  
+  2018
+</footer>
+
+
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 5,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+
+</body>
+</html>

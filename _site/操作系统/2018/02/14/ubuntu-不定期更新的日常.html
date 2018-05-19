@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/media.css">
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/rouge.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Ubuntu" rel="stylesheet">
+    <title>[Ubuntu]之使用基础</title>
+</head>
+
+<body>
+    <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+<header id="index-header">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/">talkCock</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/">首页</a></li>
+              
+                <li><a href="/tags.html">标签</a></li>
+              
+                <li><a href="/resume/index.html">关于鸡哥</a></li>
+              
+                <li><a href="/friendLink.html">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/img/boot.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/img/boot.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/resume/index.html"><li>关于鸡哥</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">[Ubuntu]之使用基础</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s">author&nbsp;&nbsp;|&nbsp;&nbsp;talkCock</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s"></span> -->
+</div>
+
+<div class="markdown-body">
+  <p>​	安装好了ubuntu之后首先要进行一些基本的操作与基本的软件的下载。将一切准备就绪之后，就可以根据自己的喜好选择一些自己喜欢的主题进行美化了。</p>
+
+<h3 id="2018-02-13-ubuntu的使用基础">2018-02-13 Ubuntu的使用基础</h3>
+
+<h3 id="基本操作与基本的软件下载推荐">基本操作与基本的软件下载推荐</h3>
+
+<h3 id="一基本操作">（一）基本操作</h3>
+
+<h4 id="1更新系统及当前系统下的第三方软件">1、更新系统及当前系统下的第三方软件</h4>
+
+<p>​	终端中输入:(ubuntu默认：<strong>ctrl+alt+t</strong> 打开终端)</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>update-manager
+</code></pre></div></div>
+
+<p><img src="/assets/img/2018-02-13-ubuntu不定期更新的日常/2018-02-13-1.png" alt="2018-02-13-1" /></p>
+
+<p>​	等待安装完成后，重启电脑即可。</p>
+
+<h4 id="2设置ubuntu为本地时间">2、设置ubuntu为本地时间</h4>
+
+<p>​	因为整体机子是ubuntu+windows的双系统，如果不将ubuntu的系统时间设为本地时间的话，会对windows系统的时间造成影响。BIOS会认为windows的时间是格林尼治时间而将时间减少8小时。会造成ubuntu为北京时间时，在windows里更改成北京时间后，ubuntu的时间又变成了格林尼治时间。以此类推会对使用造成困扰。</p>
+
+<p>​	解决的方法很简单，终端中输入：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>timedatectl set-local-rtc <span class="nb">true</span>
+</code></pre></div></div>
+
+<p>​	回车后没有任何提示，但是实际是已经解决了问题。</p>
+
+<h4 id="3其他就是一些终端的文件目录的基本操作了">3、其他就是一些终端的文件、目录的基本操作了</h4>
+
+<p>​	略</p>
+
+<h3 id="二基本的软件推荐">（二）基本的软件推荐</h3>
+
+<h4 id="1新得立软件包管理器">1、新得立软件包管理器</h4>
+
+<p>​	用于管理系统已装与未装的软件神器，在里面搜索软件名即可安装或卸载相应的软件</p>
+
+<p><strong>安装方法：</strong></p>
+
+<p>​	Ubuntu Software（ubuntu软件商店）内搜索 ‘synaptic’ 安装</p>
+
+<p><img src="/assets/img/2018-02-13-ubuntu不定期更新的日常/2018-02-13-3.png" alt="2018-02-13-3" /></p>
+
+<p><img src="/assets/img/2018-02-13-ubuntu不定期更新的日常/2018-02-13-2.png" alt="2018-02-13-2" /></p>
+
+<h4 id="2gdebi软件包安装器">2、GDebi软件包安装器</h4>
+
+<p>​	在ubuntu里也是一款神器，可以快速安装deb格式的软件包，免去了在终端命令行里输命令安装的繁琐。deb格式的软件包，只需要用它来打开，就像是windows的操作一样。</p>
+
+<p><strong>安装方法：</strong></p>
+
+<p>​	软件商店搜索 ‘GDebi’ 等待安装即可</p>
+
+<p><img src="/assets/img/2018-02-13-ubuntu不定期更新的日常/2018-02-13-4.png" alt="2018-02-13-4" /></p>
+
+<h4 id="3搜狗输入法">3、搜狗输入法</h4>
+
+<p>​	ubuntu自带的输入法对于中文的输入虽然已经做的不错了，但是对于国人来说依然觉得差强人意了。所以，搜狗输入法 For Linux的出现，简直就是福星。使用效果与windows没有差别，而且在windows下，搜狗输入法的使用人群可以说是相当庞大，接触linux后有一款符合自己使用习惯的输入法软件，对于新手来说简直就是可以无缝接入ubuntu的赶脚。</p>
+
+<p><strong>安装方法：</strong></p>
+
+<p>​	浏览器百度搜索 ‘sougou for Linux’，下载deb包，然后右键用GDebi软件包安装器打开，点击安装软件即可。</p>
+
+<p><img src="/assets/img/2018-02-13-ubuntu不定期更新的日常/2018-02-13-5.png" alt="2018-02-13-5" /></p>
+
+<p><img src="/assets/img/2018-02-13-ubuntu不定期更新的日常/2018-02-13-6.png" alt="2018-02-13-6" /></p>
+
+<p>​	看清支持版本后，根据自己的系统版本，选择32位的或是64位的版本，点击下载，保存即可获得 deb 软件包。之后<strong>右键 sougou.deb 选择在GDebi中打开</strong>即可进行安装与卸载操作。</p>
+
+<p>​	安装好后自动添加到系统输入法选项中，点击键盘 <strong>ctrl+空格</strong> 即可切换输入法。</p>
+
+<h4 id="4unity-tweak-toolunity桌面环境的界面优化工具">4、Unity Tweak Tool（Unity桌面环境的界面优化工具）</h4>
+
+<p>​	后续界面美化将会用到</p>
+
+<p><strong>安装方法：</strong></p>
+
+<p>​	ubuntu商店搜索 ‘Unity Tweak Tool’ 点击安装即可</p>
+
+<p><img src="/assets/img/2018-02-13-ubuntu不定期更新的日常/2018-02-13-7.png" alt="2018-02-14-7" /></p>
+
+<h4 id="5grub-customizer开机引导程序grub的管理器">5、Grub Customizer（开机引导程序Grub的管理器）</h4>
+
+<p>​	用于设置与管理开机引导的相关事项，可以更改开机引导的主题</p>
+
+<p><strong>安装方法：</strong></p>
+
+<p>​	应用商店中没有，在终端使用命令行下载安装</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>add-apt-repository ppa:danielrichter2007/grub-customizer
+<span class="nb">sudo </span>apt-get update
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>grub-customizer
+</code></pre></div></div>
+
+<p>​	等待终端运行结束即可。</p>
+
+<h4 id="6gimp图像处理软件">6、GIMP（图像处理软件）</h4>
+
+<p>​	GIMP是一款十分好用的图像处理软件，安装后像是windows下的画图工具，轻巧灵变，其功能又更偏向Photoshop，实用强大。后续将用它来处理图像以及更改图片的格式。</p>
+
+<p><strong>安装方法：</strong></p>
+
+<p>​	商店搜索 ‘GIMP’ 点击安装即可。</p>
+
+<p><img src="/assets/img/2018-02-13-ubuntu不定期更新的日常/2018-02-13-8.png" alt="2018-02-13-8" /></p>
+
+<h4 id="7linux版wechat微信">7、Linux版WeChat（微信）</h4>
+
+<p>​	不用多介绍，大神做的Linux阉割版微信，但应付聊天完全没什么问题。其实，应该就是将网页版微信移植到Linux。</p>
+
+<p><strong>安装方法：</strong></p>
+
+<p>​	<a href="https://github.com/geeeeeeeeek/electronic-wechat/releases">electronic-wechat</a> 更新到 2017-02-13 ，但现在仍然可以正常使用。</p>
+
+<p>​	下载了压缩包后，解压，双击 “electronic-wechat” 运行微信。</p>
+
+<p><img src="/assets/img/2018-02-13-ubuntu不定期更新的日常/2018-02-13-9.png" alt="2018-02-13-9" /></p>
+
+<p><strong>使用方法：</strong></p>
+
+<p>​	通过手机扫描二维码登录。</p>
+
+<p>​	有通知提醒，有状态栏小图标。感谢作者 <a href="https://github.com/geeeeeeeeek">geeeeeeeeek</a></p>
+
+<h4 id="8chrome">8、chrome</h4>
+
+<p>​	本人最常用浏览器，配合FQ一同食用，好感度加分。后续教学，FQ。</p>
+
+<p><strong>安装方法：</strong></p>
+
+<p>​	终端运行如下命令：（逐条执行）</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+</code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get <span class="nt">-f</span> <span class="nb">install</span>     //额外执行
+</code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dpkg <span class="nt">-i</span> google-chrome-stable_current_amd64.deb
+</code></pre></div></div>
+
+<h4 id="9网易云音乐">9、网易云音乐</h4>
+
+<p>​	当初看到网易云低调的推出Linux版的时候，我简直是太激动啦。这真是国内最良心音乐平台。本来就一直在用，后来用上了Linux版，和Windows完全没有差别的Linux软件，这岂不是美滋滋。为网易云深鞠躬。</p>
+
+<p><strong>安装方法：</strong></p>
+
+<p>​	百度搜索 ‘网易云 for linux’，下载与系统版本对应的deb文件，与搜狗安装方式相同。</p>
+
+<p><img src="/assets/img/2018-02-13-ubuntu不定期更新的日常/2018-02-13-10.png" alt="2018-02-13-10" /></p>
+
+<p><img src="/assets/img/2018-02-13-ubuntu不定期更新的日常/2018-02-13-11.png" alt="2018-02-13-11" /></p>
+
+<h4 id="10typoramarkdown编辑器">10、Typora（markdown编辑器）</h4>
+
+<p>​	这就是我现在写博客用的编辑器，完美在各个系统版本上运行。</p>
+
+<p><strong>安装方法：</strong></p>
+
+<p>​	终端命令如下</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># optional, but recommended</span>
+
+<span class="nb">sudo </span>apt-key adv <span class="nt">--keyserver</span> keyserver.ubuntu.com <span class="nt">--recv-keys</span> BA300B7755AFCFAE
+
+<span class="c"># add Typora's repository</span>
+
+<span class="nb">sudo </span>add-apt-repository <span class="s1">'deb http://typora.io linux/'</span>
+
+<span class="nb">sudo </span>apt-get update
+
+<span class="c"># install typora</span>
+
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>typora
+</code></pre></div></div>
+
+<p>​	安装好后点击图标即可，运行。</p>
+
+<h4 id="11qq">11、QQ</h4>
+
+<p>​	与上面微信类似，也是阉割版的，不过他之所以算是阉割版，是因为他不在更新了，使用的是2012国际版qq的Wine版。虽然有点差强人意，但是平常聊天依然可以正常进行。</p>
+
+<p><strong>安装方法：</strong></p>
+
+<p>​	<a href="https://pan.baidu.com/s/1eToTEpG">密码: 8uay</a></p>
+
+<p>​	下载得到zip压缩包，解压后得到三个deb包。将这三个deb包用GDebi逐个安装即可。参考 搜狗输入法 的安装。</p>
+
+<p><strong>使用方法：</strong></p>
+
+<p>​	点击qq图标打开qq，或者在终端输入 “wine-qqintl” 。初始化需等待数秒，之后会很快。</p>
+
+<p>​	不多说，其他和windows一样，只是不能完成视频、收红包等操作。</p>
+
+<p><img src="/assets/img/2018-02-13-ubuntu不定期更新的日常/2018-02-13-12.png" alt="2018-02-13-12" /></p>
+
+<p>​	同样感谢不知名大神。</p>
+
+<h4 id="12dockyubuntu下好看的dock栏">12、Docky（ubuntu下好看的dock栏）</h4>
+
+<p>​	像使用Mac一样使用你的Ubuntu。</p>
+
+<p><strong>安装方法：</strong></p>
+
+<p>​	在应用商店搜索 “docky” 点击安装即可。</p>
+
+<p><img src="/assets/img/2018-02-13-ubuntu不定期更新的日常/2018-02-13-13.png" alt="2018-02-13-13" /></p>
+
+<p><img src="/assets/img/2018-02-13-ubuntu不定期更新的日常/2018-02-13-14.png" alt="2018-02-13-14" /></p>
+
+<p>​	暂时想到这些东西，其他的后续补充。</p>
+
+<hr />
+
+<p>​	如果看到这篇文章还有什么疑问想要寻求帮助的，欢迎联系本人。微博、qq、微信在文章末尾处。欢迎来告诉我你的想法。</p>
+
+<p>​	如需转载，请注明出处，谢谢。</p>
+
+</div>
+<footer id="bottom">
+  ⌘鸡哥⌘的博客 ©
+  
+  
+  2018
+</footer>
+
+
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 5,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+
+</body>
+</html>

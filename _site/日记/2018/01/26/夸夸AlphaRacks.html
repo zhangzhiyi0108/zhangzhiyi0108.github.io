@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/media.css">
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/rouge.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Ubuntu" rel="stylesheet">
+    <title>夸夸AlphaRacks公司</title>
+</head>
+
+<body>
+    <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+<header id="index-header">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/">talkCock</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/">首页</a></li>
+              
+                <li><a href="/tags.html">标签</a></li>
+              
+                <li><a href="/resume/index.html">关于鸡哥</a></li>
+              
+                <li><a href="/friendLink.html">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/img/boot.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/img/boot.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/resume/index.html"><li>关于鸡哥</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">夸夸AlphaRacks公司</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s">author&nbsp;&nbsp;|&nbsp;&nbsp;talkCock</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s"></span> -->
+</div>
+
+<div class="markdown-body">
+  <h3 id="写篇小日记">写篇小日记</h3>
+
+<p>​	感冒了几天，没有来写博客，就天天在家里看看剧。也没有注意到自己的VPS的情况。今天想用用SSR发现，居然不能用了。居然见鬼了。！！！</p>
+
+<p>​	然后想起来前几天看到说这几天好像在开什么会，墙应该又高了，我的ip肯定被注意到了，是应该注意点啊。</p>
+
+<p>​	为了验证一下自己的想法，进了一个ip分析的网站，在这里分享给大家—— <a href="https://www.ipip.net">IPIP</a>。</p>
+
+<p>​	用了ping工具发现原来的ip居然在国内任何一个地方的丢包率全为100%。尴尬又无奈。</p>
+
+<p>​	我只好抱着试一试的心态在此建了个服务单，给老美发邮件。“Excuse me!  Can you change a IP for me? This IP is not accessible in China.” 这次他完全就是秒回我。而且和我说给我换了个ip。外加一句经典的话，“Please check now.” 他又让我check一下。那就check，用他新IP在Xshell里连了一下，完全OJB有用。这效率还真是可以啊。想起国内的云，发封邮件要好久才会回，这远在大洋彼岸的美帝，回我这么迅速，算是很良心了。</p>
+
+<p>​	希望这次别再被“河蟹”了，还有上次说的BBR，我在这次没有实现，而且网速更慢了，还是等下次的谷歌云或者是亚马逊云在详细的写吧。先贴一点OpenVZ下用BBR会用到的命令。</p>
+
+<hr />
+
+<p><strong>Google BBR安装脚本</strong></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://raw.githubusercontent.com/kuoruan/shell-scripts/master/ovz-bbr/ovz-bbr-installer.sh
+
+<span class="nb">chmod</span> +x ovz-bbr-installer.sh
+
+./ovz-bbr-installer.sh
+
+</code></pre></div></div>
+
+<p>1、安装过程中会要求输入需要加速的端口号，请按自己的需求输入（比如加速Web服务，则输入80）</p>
+
+<p>2、可能需要配置 “公网接口名称”，即你服务器上具有公网 IP 的接口名称。搬瓦工 OpenVZ 上默认都是 venet0</p>
+
+<p>这个名称可以通过ifconfig命令查询得到，如果执行ifconfig命令提示无此命令，请先安装net-tools工具包。</p>
+
+<p><strong>net-tools工具包：</strong></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum <span class="nb">install </span>net-tools <span class="nt">-y</span>
+</code></pre></div></div>
+
+<p><strong>判断BBR是否正常工作</strong></p>
+
+<p>判断 bbr 是否正常启动可以尝试 ping 10.0.0.2，如果能通，说明 bbr 已经启动。</p>
+
+<p><strong>启动、停止、重启bbr、查看bbr服务状态</strong></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl <span class="o">{</span>start|stop|restart|status<span class="o">}</span> haproxy-lkl
+</code></pre></div></div>
+
+<p><strong>配置bbr加速端口</strong></p>
+
+<p>（在安装的时候只输入了一个端口，但是实际可以支持加速多个端口），如需修改加速端口，请修改以下文件，每行一个端口号，或者端口范围</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi /usr/local/haproxy-lkl/etc/port-rules
+</code></pre></div></div>
+
+<p><strong>卸载bbr</strong></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./ovz-bbr-installer.sh uninstall
+</code></pre></div></div>
+
+<hr />
+
+<p>好了，感冒还没彻底好，我要回到温暖的被窝了。。。。</p>
+
+<p>​	如果看到这篇文章还有什么疑问想要寻求帮助的，欢迎联系本人。微博、qq、微信在文章末尾处。欢迎来告诉我你的想法。</p>
+
+<p>​	如需转载，请注明出处，谢谢。</p>
+
+</div>
+<footer id="bottom">
+  ⌘鸡哥⌘的博客 ©
+  
+  
+  2018
+</footer>
+
+
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 5,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/media.css">
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/rouge.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Ubuntu" rel="stylesheet">
+    <title>[Ubuntu]之不一样的内网穿透</title>
+</head>
+
+<body>
+    <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+<header id="index-header">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/">talkCock</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/">首页</a></li>
+              
+                <li><a href="/tags.html">标签</a></li>
+              
+                <li><a href="/resume/index.html">关于鸡哥</a></li>
+              
+                <li><a href="/friendLink.html">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/img/boot.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/img/boot.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/resume/index.html"><li>关于鸡哥</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">[Ubuntu]之不一样的内网穿透</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s">author&nbsp;&nbsp;|&nbsp;&nbsp;talkCock</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s"></span> -->
+</div>
+
+<div class="markdown-body">
+  <p>​	因为喜欢<strong>ubuntu</strong>，所以一直想要将它用得就像是<strong>windows</strong>一般丝滑。介于ubuntu装了sublime之后，我就更想让<strong>ubuntu</strong>变成学习主力机了。所以，今天将ubuntu也给内网穿透了。也就是说将ubuntu配合web组件，使之成为我日常学习web的调试工具。</p>
+
+<p>​	既然讲到了 <strong>内网穿透</strong> 那么就要回顾过去的所学了。 <a href="http://talkcock.site/2018/01/18/Ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F.html">Ngrok内网穿透</a></p>
+
+<p>​	在之前，我用go语言编译了windows版的ngrok客户端。所以这次，原来的配置可以不用管它，只需要编译一个linux版的客户端，在理论上讲就是可以的了。</p>
+
+<h3 id="一在ubuntu下远程登录centos服务器">一、在ubuntu下远程登录centos服务器</h3>
+
+<p>​	在终端中输入</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh root@<span class="k">**</span>.<span class="k">**</span>.<span class="k">**</span>.<span class="k">**</span>   //后面的<span class="k">*</span>为服务器的ip地址
+</code></pre></div></div>
+
+<h3 id="二编译-ngrok-linux客户端">二、编译 <strong>Ngrok</strong> linux客户端</h3>
+
+<p>​	在服务器中执行如下代码</p>
+
+<p>​	如果不在 /ngrok 的目录中，则 <code class="highlighter-rouge">cd ngrok</code> 到目录中</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">GOOS</span><span class="o">=</span><span class="n">linux</span><span class="x"> </span><span class="n">GOARCH</span><span class="o">=</span><span class="n">amd64</span><span class="x"> </span><span class="nb">make</span><span class="x"> </span><span class="n">release</span><span class="o">-</span><span class="n">client</span><span class="x">
+</span></code></pre></div></div>
+
+<p>​	编译生成的 <strong>ngrok</strong> 在 <strong>/ngrok/bin</strong> 目录下，其中目录下的 <strong>ngroked</strong> 为服务端，不要搞错了</p>
+
+<h3 id="三将客户端文件拷到本地">三、将客户端文件拷到本地</h3>
+
+<p>​	同样，在本地的终端（不要搞错了，在本地）输入如下格式的命令</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scp <span class="nt">-r</span> root@<span class="k">**</span>.<span class="k">**</span>.<span class="k">**</span>.<span class="k">**</span>:/root/ngrok/bin/ngrok /home/<span class="k">***</span>
+</code></pre></div></div>
+
+<p>​	其中，为远程服务器ip地址，“ : ” 之后分为两部分，前部分为 远程文件的 <strong>绝对路径</strong> ，后部分为 将要存放远程文件的 <strong>本机的绝对路径</strong>。</p>
+
+<h3 id="四编写配置文件">四、编写配置文件</h3>
+
+<p>​	在客户端文件的相同目录下创建一个文件，命名为 <strong>ngrok.cfg</strong> ,在文件中输入如下文字</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server_addr: <span class="s2">"abc.com:8083"</span>
+trust_host_root_certs: <span class="nb">false
+</span>tunnels:
+  http:
+    subdomain: <span class="s2">"www"</span>
+    proto:
+      http: <span class="s2">"80"</span>
+
+  https:
+    subdomain: <span class="s2">"www"</span>
+    proto:
+      https: <span class="s2">"443"</span>
+
+  ssh:
+    remote_port: 2222
+    proto:
+      tcp: <span class="s2">"22"</span>
+
+  mstsc:
+        remote_port: 52222      
+        proto:
+         tcp: <span class="s2">"本机ip:3389"</span>
+</code></pre></div></div>
+
+<p>​	其中，abc.com为你在远程服务器配置的域名地址。</p>
+
+<h3 id="五开启客户端服务">五、开启客户端服务</h3>
+
+<p>​	在远程服务开启的时候，在终端输入</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./ngrok <span class="nt">-config</span><span class="o">=</span>./ngrok.cfg start http https ssh mstsc
+</code></pre></div></div>
+
+<p>如果出现下图所示，即为成功</p>
+
+<p><img src="/assets/img/2018-03-21-ubuntu不定期更新的日常/2018-03-21-1.png" alt="018-03-21-" /></p>
+
+<p>​	此时，你已经将 ubuntu 的内网给穿了，实际效果应该会和 windows 是一样的。</p>
+
+<hr />
+
+<p><strong>关于开启客户端的便捷操作：（将命令打包成可执行文件）</strong></p>
+
+<p><strong>格式如下</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+××××××××××××××××××××××//命令
+</code></pre></div></div>
+
+<p>命名随意，只要没有后缀</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> +x ××××
+</code></pre></div></div>
+
+<p>最后终端运行</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./×××
+</code></pre></div></div>
+
+<h3 id="六安装-web组件">六、安装 web组件</h3>
+
+<p>​	虽然已经将内网给穿透了，但是如果想要做网站测试，仅仅穿透了内网是显然不够的，这时候还需要一个强大 <strong>web组件</strong> 来配合使用。</p>
+
+<p>​	ubuntu环境下，web组件有各式各样的版本，在这里我还是使用 <strong>PHPstudy</strong> 。</p>
+
+<p>​	在 PHPstudy 官网明确得给了 linux 版phpstudy的安装配置方法。<a href="http://lamp.phpstudy.net/">LAMP</a></p>
+
+<p>​	同样，在终端逐条输入一下命令即可安装</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="nt">-c</span> http://lamp.phpstudy.net/phpstudy.bin
+<span class="nb">chmod</span> +x phpstudy.bin    <span class="c">#权限设置</span>
+./phpstudy.bin 　　　　#运行安装
+</code></pre></div></div>
+
+<p>​	当然，安装编译的时间相当之长，还是要看个人电脑的配置吧。</p>
+
+<hr />
+
+<p><strong>关于使用：</strong></p>
+
+<p>在终端中使用sudo 或者 使用管理员账号运行 <code class="highlighter-rouge">phpstudy start</code> 开启</p>
+
+<p><strong>命令列表：</strong></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>phpstudy start | stop | restart        开启 | 停止 | 重启
+
+phpstudy add | del | list       添加虚拟主机 | 删除虚拟主机 | 查看虚拟主机列表
+	注：添加或删除过虚拟主机域名，需要重新修改host文件配置，（sudo vim /etc/hosts）
+
+phpstudy ftp add | del | list    
+</code></pre></div></div>
+
+<p><strong>配置文件地址：</strong></p>
+
+<p>apache配置文件：<code class="highlighter-rouge">/phpstudy/server/httpd/conf/httpd.conf</code></p>
+
+<p>PHP配置文件：<code class="highlighter-rouge">/phpstudy/server/php/etc/php.ini</code></p>
+
+<p><strong>打开MySQL控制台：</strong></p>
+
+<p><code class="highlighter-rouge">/phpstudy/mysql/bin/mysql -uroot -proot</code></p>
+
+<p><strong>网站根目录：</strong>  <code class="highlighter-rouge">/phpstudy/www</code></p>
+
+<p><strong>外部网站代码导入根目录以及对文件的操作：</strong></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>一切操作在root 权限下执行 <span class="sb">`</span><span class="nb">sudo </span>su<span class="sb">`</span>
+
+<span class="nb">cp</span> <span class="nt">-r</span> /home/xukimseven/××/×× /phpstudy/www    //复制文件至 /phpstudy/www 目录
+
+<span class="nb">mv </span>old new        //重命名
+</code></pre></div></div>
+
+<h3 id="七查看配置情况">七、查看配置情况</h3>
+
+<p>终端输入 <code class="highlighter-rouge">sudo phpstudy start</code> 之后，在浏览器中输入 <code class="highlighter-rouge">localhost</code> 进行查看</p>
+
+<p><img src="/assets/img/2018-03-21-ubuntu不定期更新的日常/2018-03-21-2.png" alt="018-03-21-" /></p>
+
+<p>如上图即为安装成功了。</p>
+
+<p>之后，只需要将网站放在根目录即可。 <strong>网站根目录：</strong>  <code class="highlighter-rouge">/phpstudy/www</code></p>
+
+<hr />
+
+<p>​	关于 ubuntu 今天就先写到这里，下次将着重讲一讲 ubuntu 结合 内网穿透 实现远程连接桌面（<strong>不是ssh</strong>，理论上远程连接了桌面之后，就像是windows一样，所有操作都能进行，包括<strong>ssh</strong>）的方法。</p>
+
+<p>​	如果看到这篇文章还有什么疑问想要寻求帮助的，欢迎联系本人。微博、qq、微信在文章末尾处。欢迎来告诉我你的想法。</p>
+
+<p>​	如需转载，请注明出处，谢谢。</p>
+
+</div>
+<footer id="bottom">
+  ⌘鸡哥⌘的博客 ©
+  
+  
+  2018
+</footer>
+
+
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 5,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+
+</body>
+</html>

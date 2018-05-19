@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-sclable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/media.css">
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/rouge.css">
+    <link rel="stylesheet" href="/assets/css/github-markdown.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Ubuntu" rel="stylesheet">
+    <title>[Ubuntu]之界面美化</title>
+</head>
+
+<body>
+    <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+<header id="index-header">
+  <div class="top-center">
+      <div class="logo">
+          <a href="/">talkCock</a>
+      </div>
+      <nav class="top-nav">
+          <ul>
+              
+                <li><a href="/">首页</a></li>
+              
+                <li><a href="/tags.html">标签</a></li>
+              
+                <li><a href="/resume/index.html">关于鸡哥</a></li>
+              
+                <li><a href="/friendLink.html">友情链接</a></li>
+              
+          </ul>
+      </nav>
+      <div id="top-boot">
+        <a href="javascript:;" id="boot1" style="display:block;" onclick="document.getElementById('boot-area').style.display='block';document.getElementById('boot1').style.display='none';document.getElementById('boot2').style.display='block';"><img src="/assets/img/boot.png" alt=""></a>
+        <a href="javascript:;" id="boot2" style="display: none;" onclick="document.getElementById('boot-area').style.display='none';document.getElementById('boot1').style.display='block';document.getElementById('boot2').style.display='none';"><img src="/assets/img/boot.png" alt=""></a>
+      </div>
+  </div>
+
+</header>
+
+<div id="boot-area">
+    <ul>
+        
+          <a href="/"><li>首页</li></a>
+        
+          <a href="/tags.html"><li>标签</li></a>
+        
+          <a href="/resume/index.html"><li>关于鸡哥</li></a>
+        
+          <a href="/friendLink.html"><li>友情链接</li></a>
+        
+    </ul>
+</div>
+
+<div class="wow fadeIn top" data-wow-duration="3.5s" >
+    <span class="wow fadeInUp" data-wow-delay="0.2s">[Ubuntu]之界面美化</span>
+    <span class="wow fadeInUp" data-wow-delay="0.4s">author&nbsp;&nbsp;|&nbsp;&nbsp;talkCock</span>
+    <!-- <span class="wow fadeInUp" data-wow-delay="0.6s"></span> -->
+</div>
+
+<div class="markdown-body">
+  <h3 id="2018-02-14-ubuntu的界面美化">2018-02-14 Ubuntu的界面美化</h3>
+
+<h3 id="前言">前言</h3>
+
+<p>​	准备好了之前的操作后，猛的发现，我的Ubuntu为什么会这么单调嘞。</p>
+
+<p>​	大家感受一下当前的桌面</p>
+
+<p><img src="/assets/img/2018-02-14-ubuntu不定期更新的日常/2018-02-14-1.png" alt="2018-02-14-1" /></p>
+
+<p>​	我只想说，极其不美观/捂脸笑哭/。</p>
+
+<p>​	所以，这就要用上之前装的Unity tweak tool来更改主题了。</p>
+
+<p>​	在更改主题前，首先要安装主题，推荐一个拥有丰富ubuntu主题的网站：<a href="http://www.noobslab.com/p/themes-icons.html">noobslab</a></p>
+
+<p>​	在网站里有各种ubuntu的主题提供apt安装方式。当你在浏览网站的时候，你可以通过预览图看到主题的样式，如果喜欢某个主题，他会告诉你这款主题适合的ubuntu桌面环境是什么，是Gtk，还是Gnome。当你正式选择好了之后，在主题介绍中会给出相关的终端命令语句。只需复制粘贴到终端后，逐条运行即可。</p>
+
+<p>​	由于该网站为国外的网站，所以国内的小伙伴如果没有科学上网（FQ）不一定访问。所以，我先给出我现在在用的几款主题。</p>
+
+<h3 id="一界面主题推荐">一、界面主题推荐</h3>
+
+<h4 id="1royal-gtk-theme">1、royal-gtk-theme</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>add-apt-repository ppa:noobslab/themes
+<span class="nb">sudo </span>apt-get update
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>royal-gtk-theme
+</code></pre></div></div>
+
+<p><strong>预览：</strong></p>
+
+<p><img src="/assets/img/2018-02-14-ubuntu不定期更新的日常/2018-02-14-2.png" alt="2018-02-14-2" /></p>
+
+<h4 id="2flatabulous个人认为挺好看的但安装极慢">2、flatabulous（个人认为挺好看的，但安装极慢）</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>add-apt-repository ppa:noobslab/themes  
+<span class="nb">sudo </span>apt-get update  
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>flatabulous-theme  
+</code></pre></div></div>
+
+<p><strong>预览：</strong></p>
+
+<p><img src="/assets/img/2018-02-14-ubuntu不定期更新的日常/2018-02-14-3.png" alt="2018-02-14-3" /></p>
+
+<h3 id="二图标包推荐">二、图标包推荐</h3>
+
+<h4 id="1super-flat-remix">1、Super Flat Remix</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>add-apt-repository ppa:daniruiz/flat-remix
+<span class="nb">sudo </span>apt-get update
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>flat-remix
+</code></pre></div></div>
+
+<p><strong>预览：</strong></p>
+
+<p><img src="/assets/img/2018-02-14-ubuntu不定期更新的日常/2018-02-14-4.png" alt="2018-02-14-4" /></p>
+
+<h4 id="2ultra-flat-icons网速不行安装过程漫长无奈">2、ultra-flat-icons（网速不行，安装过程漫长，无奈）</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>add-apt-repository ppa:noobslab/icons    
+<span class="nb">sudo </span>apt-get update    
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>ultra-flat-icons  
+</code></pre></div></div>
+
+<p><strong>预览：</strong></p>
+
+<p><img src="/assets/img/2018-02-14-ubuntu不定期更新的日常/2018-02-14-5.png" alt="2018-02-14-5" /></p>
+
+<h3 id="三界面图标二合一">三、界面图标二合一</h3>
+
+<h4 id="1numix">1、numix</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>add-apt-repository ppa:numix/ppa
+<span class="nb">sudo </span>apt-get update
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>numix-gtk-theme numix-icon-theme-circle
+</code></pre></div></div>
+
+<p><strong>预览：</strong></p>
+
+<p><img src="/assets/img/2018-02-14-ubuntu不定期更新的日常/2018-02-14-6.png" alt="2018-02-14-6" /></p>
+
+<h4 id="2paper">2、paper</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>add-apt-repository ppa:snwh/pulp
+<span class="nb">sudo </span>apt-get update
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>paper-gtk-theme
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>paper-icon-theme
+</code></pre></div></div>
+
+<p><strong>预览：</strong></p>
+
+<p><img src="/assets/img/2018-02-14-ubuntu不定期更新的日常/2018-02-14-7.png" alt="2018-02-14-7" /></p>
+
+<h4 id="在此仅为推荐是我自己的喜欢的各种主题最终搭配自己决定自己的ubuntu自己决定">在此仅为推荐，是我自己的喜欢的各种主题，最终搭配自己决定，自己的ubuntu，自己决定。</h4>
+
+<p><strong>自己当前使用：</strong>flatabulous + Super Flat Remix</p>
+
+<p><img src="/assets/img/2018-02-14-ubuntu不定期更新的日常/2018-02-14-8.png" alt="2018-02-14-8" /></p>
+
+<hr />
+
+<p>​	认真看我最后一张图的小伙伴就会发现自己的终端显示与我的不同，那如果觉得我这样改完了的终端会更简洁好看，那么就看我接下来的内容。</p>
+
+<h3 id="四终端样式更改">四、终端样式更改</h3>
+
+<p>​	主要就是更改 ~/.bashrc 文件</p>
+
+<h4 id="1安装-vim">1、安装 vim</h4>
+
+<p>​	终端输入：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>vim
+</code></pre></div></div>
+
+<h4 id="2用vim打开-bashrc">2、用vim打开 ~/.bashrc</h4>
+
+<p>​	终端输入：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim ~/.bashrc
+</code></pre></div></div>
+
+<h4 id="3将光标移动至文件最下方">3、将光标移动至文件最下方</h4>
+
+<p>​	点击键盘 “ } ” 键</p>
+
+<h4 id="4在文件最后添加一句话">4、在文件最后添加一句话</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PS1</span><span class="o">=</span><span class="s2">" </span><span class="se">\[\e</span><span class="s2">[32;1m</span><span class="se">\]</span><span class="s2">-&gt; </span><span class="se">\[\e</span><span class="s2">[36;1m</span><span class="se">\]\w</span><span class="s2"> </span><span class="se">\[\e</span><span class="s2">[0;0m</span><span class="se">\]</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<p><img src="/assets/img/2018-02-14-ubuntu不定期更新的日常/2018-02-14-9.png" alt="2018-02-14-9" /></p>
+
+<p>​	其中的变量自己更改为想要的。</p>
+
+<p>​	<strong>变量含义：</strong></p>
+
+<hr />
+
+<p><strong>代码序列说明</strong></p>
+
+<p><strong>\a</strong>   ASCII响铃字符（也可以键入 \007）</p>
+
+<p><strong>\d</strong>   “Wed Sep06”格式的日期</p>
+
+<p><strong>\e</strong>   ASCII转义字符（也可以键入 \033）</p>
+
+<p><strong>\h</strong>   主机名的第一部分（如 “mybox”）</p>
+
+<p><strong>\H</strong>  主机的全称（如 “mybox.mydomain.com”）</p>
+
+<p><strong>\j</strong>    在此 shell中通过按 ^Z挂起的进程数</p>
+
+<p><strong>\l</strong>   此 shell的终端设备名（如 “ttyp4”）</p>
+
+<p><strong>\n</strong>   换行符</p>
+
+<p><strong>\r</strong>    回车符</p>
+
+<p><strong>\s</strong>   shell的名称（如 “bash”）</p>
+
+<p><strong>\t</strong>   24小时制时间（如 “23:01:01”）</p>
+
+<p><strong>\T</strong>   12小时制时间（如 “11:01:01”）</p>
+
+<p><strong>\@</strong>  带有 am/pm的 12小时制时间</p>
+
+<p><strong>\u</strong>   用户名</p>
+
+<p><strong>\v</strong>    bash的版本（如 2.04）</p>
+
+<p><strong>\V</strong>   Bash版本（包括补丁级别） ?/td&gt;;</p>
+
+<p><strong>\w</strong>   当前工作目录（如 “/home/drobbins”）</p>
+
+<p><strong>\W</strong>   当前工作目录的“基名 (basename)”（如 “drobbins”）</p>
+
+<p><strong>\ !</strong>     当前命令在历史缓冲区中的位置</p>
+
+<p><strong>\ #</strong>    命令编号（只要您键入内容，它就会在每次提示时累加）</p>
+
+<p><strong>\ $</strong>   如果您不是超级用户 (root)，则插入一个 “$”；如果您是超级用户，则显示一个 “#”</p>
+
+<p><strong>\xxx</strong>   插入一个用三位数 xxx（用零代替未使用的数字，如 “/007”）表示的 ASCII 字符<em>**</em></p>
+
+<p><strong>\\</strong>     反斜杠</p>
+
+<p><strong>\ [</strong>     这个序列应该出现在不移动光标的字符序列（如颜色转义序列）之前。它使 bash能够正确计算自动换行。</p>
+
+<p><strong>\ ]</strong>     这个序列应该出现在非打印字符序列之后。</p>
+
+<hr />
+
+<p><strong>代码</strong>             <strong>意义</strong></p>
+
+<p>0                 OFF</p>
+
+<p>1                 高亮显示</p>
+
+<p>4                 underline</p>
+
+<p>5                 闪烁</p>
+
+<p>7                 反白显示</p>
+
+<p>8                 不可见</p>
+
+<hr />
+
+<p><strong>前景            背景             颜色</strong></p>
+
+<p>30                40               黑色</p>
+
+<p>31                41               紅色</p>
+
+<p>32                42               綠色</p>
+
+<p>33                43               黃色</p>
+
+<p>34                44               藍色</p>
+
+<p>35                45               紫紅色</p>
+
+<p>36                46               青藍色</p>
+
+<p>37                47               白色</p>
+
+<p>1                  1                透明色</p>
+
+<hr />
+
+<p><strong>分享一个  <a href="http://www.fhdq.net/">特殊符号大全</a></strong> 可以用于终端提示符的显示，留着玩吧。</p>
+
+<p>也附上一个好看的搭配</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PS1</span><span class="o">=</span><span class="s2">"</span><span class="se">\[\e</span><span class="s2">[0;1m</span><span class="se">\]</span><span class="s2">┌─( </span><span class="se">\[\e</span><span class="s2">[32;1m</span><span class="se">\]\u\[\e</span><span class="s2">[0;1m</span><span class="se">\]</span><span class="s2"> ) – ( </span><span class="se">\[\e</span><span class="s2">[36;1m</span><span class="se">\]\w\[\e</span><span class="s2">[0;1m</span><span class="se">\]</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">└──┤ </span><span class="se">\[\e</span><span class="s2">[0m</span><span class="se">\]</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<h4 id="5更新配置文件">5、更新配置文件</h4>
+
+<p>​	终端输入：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> .bashrc
+</code></pre></div></div>
+
+<hr />
+
+<p>​	上面讲到变成 “ 终端 ” 二字不好看了。所以我们再次对 ~/.bashrc 文件进行修改</p>
+
+<h4 id="6再次用vim打开-bashrc">6、再次用vim打开 ~/.bashrc</h4>
+
+<p>​	终端输入：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim ~/.bashrc
+</code></pre></div></div>
+
+<h4 id="7参考上文方法在最后添加另一句话">7、参考上文方法，在最后添加另一句话</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">PROMPT_COMMAND</span><span class="o">=</span><span class="s1">'echo -ne "\033]0;XuKimSeven@Ubuntu: ~\007"'</span>
+</code></pre></div></div>
+
+<p>​	这里，只需将 “ XuKimSeven@Ubuntu: ~ ” 改为自己想要的文字即可。</p>
+
+<h4 id="8更新配置文件">8、更新配置文件</h4>
+
+<p>​	终端输入：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> .bashrc
+</code></pre></div></div>
+
+<p><img src="/assets/img/2018-02-14-ubuntu不定期更新的日常/2018-02-14-10.png" alt="2018-02-14-10" /></p>
+
+<h4 id="9vim的使用介绍">9、vim的使用介绍</h4>
+
+<p>​	具体见网络。</p>
+
+<p>（1）打开文件后，点击 键盘 ‘ i ’ ，即可进行输入</p>
+
+<p>（2）保存文件。首先点击键盘，‘ esc ’ 退出输入模式，再次输入 ‘ :wq ’ ，即可退出并保存。</p>
+
+<p><img src="/assets/img/2018-02-14-ubuntu不定期更新的日常/2018-02-14-11.png" alt="2018-02-14-11" /></p>
+
+<p>（3）不保存退出。首先点击键盘，‘ esc ’ 退出输入模式，再次输入 ‘ :q! ’ ，即可不保存退出。</p>
+
+<p><img src="/assets/img/2018-02-14-ubuntu不定期更新的日常/2018-02-14-12.png" alt="2018-02-14-12" /></p>
+
+<hr />
+
+<p>​	还有一个尴尬事就是，每当开机时，就感觉自己的电脑像是很垃圾的破电脑，外人看来，怎么开机的时候还有这种文字界面出现，显得电脑变得低端了。这就是因为，初始的开机引导也太Low了。</p>
+
+<p>​	最后，今天给出一个改变开机引导的方法。</p>
+
+<h3 id="五开机引导主题">五、开机引导主题</h3>
+
+<h4 id="1下载安装开机引导主题">1、下载安装开机引导主题</h4>
+
+<p>​	grub-themes-vimix ：<a href="https://pan.baidu.com/s/1qZuEWqS">密码: qnq3</a></p>
+
+<p>​	下载得到一个deb包，用GDebi软件包安装器安装即可直接使用。</p>
+
+<h4 id="2定制vimix主题">2、定制vimix主题</h4>
+
+<p>​	安装好以后虽可以直接使用，但还是有点Low，所以，需要自己定制，使他更有个性。这就要用到之前介绍的软件 <strong>Grub Customizer</strong> 。</p>
+
+<p><strong>强调：由于开机引导项直接关系到你是否能够进入到系统，所以，请慎重修改。最好只修改以下三项或三项中的其一其二，其他东西还是慎重，不要乱动，后果自负。</strong></p>
+
+<p>（1）打开软件，就可以看到引导项，可以对其增、删或更名。</p>
+
+<p><img src="/assets/img/2018-02-14-ubuntu不定期更新的日常/2018-02-14-13.png" alt="2018-02-14-13" /></p>
+
+<p>​	我只留下两个，即 windows 与 ubuntu ，并改了名字调了顺序。</p>
+
+<p>（2）修改参数</p>
+
+<p><img src="/assets/img/2018-02-14-ubuntu不定期更新的日常/2018-02-14-15.png" alt="2018-02-14-14" /></p>
+
+<p>（3）开机引导的背景图片</p>
+
+<p><img src="/assets/img/2018-02-14-ubuntu不定期更新的日常/2018-02-14-16.png" alt="2018-02-14-16" /></p>
+
+<p>点击2后，选择自己喜欢的图片即可。</p>
+
+<p>​	<strong>注意：这张图片必须是  .png  格式的图片，不然会在开机时报错。不用慌，这时候还是可以正常使用引导进入系统的。</strong></p>
+
+<p>​	<strong>当然，图片分辨率最好大于或等于显示器分辨率，这样做主要是为了显示的清晰度。</strong></p>
+
+<p>​	完成以上操作后，你就将拥有与我类似的启动界面了。</p>
+
+<p><img src="/assets/img/2018-02-14-ubuntu不定期更新的日常/2018-02-14-17.png" alt="2018-02-14-17" /></p>
+
+<p>​	关于其他的开机启动主题，后续将补充。</p>
+
+<p>​	忙活半天最终结果</p>
+
+<p><img src="/assets/img/2018-02-14-ubuntu不定期更新的日常/2018-02-14-8.png" alt="2018-02-14-8" /></p>
+
+<hr />
+
+<p>​	今天就到此为止了，明天春节快乐！！！</p>
+
+<p>​	如果看到这篇文章还有什么疑问想要寻求帮助的，欢迎联系本人。微博、qq、微信在文章末尾处。欢迎来告诉我你的想法。</p>
+
+<p>​	如需转载，请注明出处，谢谢。</p>
+
+</div>
+<footer id="bottom">
+  ⌘鸡哥⌘的博客 ©
+  
+  
+  2018
+</footer>
+
+
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 5,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+
+</body>
+</html>
