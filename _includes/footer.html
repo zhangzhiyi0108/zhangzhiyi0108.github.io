@@ -1,5 +1,5 @@
 <footer id="bottom">
-  {{ site.title }} ©
+  <span>{{ site.title }} ©
   {% assign current = "now" | date: "%Y" | plus: 0%}
   {% unless site.footer.since and site.footer.since == current %}
     {{ site.footer.since }}
@@ -7,5 +7,5 @@
   {% endunless %}
   {{ current }}
   <br>
-  Powered by <a href="http://jekyllrb.com/">Jekyll</a> | Theme talkCock'Blog
+  Powered by <a href="http://jekyllrb.com/">Jekyll</a> | Theme talkCock'Blog</span>
 </footer>

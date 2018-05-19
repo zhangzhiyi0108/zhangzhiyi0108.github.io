@@ -267,7 +267,10 @@ a{
   text-align: center;
   color: #555;
 }
-#bottom a{
+#bottom span{
+  display: table-cell;
+}
+#bottom span a{
   color: #555;
 }
 
