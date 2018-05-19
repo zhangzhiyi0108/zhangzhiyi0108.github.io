@@ -269,6 +269,7 @@ a{
 }
 #bottom span{
   display: table-cell;
+  vertical-align: middle;
 }
 #bottom span a{
   color: #555;
