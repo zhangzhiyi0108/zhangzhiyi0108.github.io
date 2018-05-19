@@ -586,10 +586,11 @@
 }
 
 .markdown-body img {
-  display: block;
   max-width: 100%;
   box-sizing: content-box;
   background-color: #fff;
+  /*改图片居中*/
+  display: block;
   margin: 0 auto;
 }
 

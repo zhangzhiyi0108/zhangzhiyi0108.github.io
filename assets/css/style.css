@@ -416,7 +416,8 @@ a{
 }
 .markdown-body .highlight pre::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
     border-radius: 0px;
-    background: #fafbfc;
+    /*background: #fafbfc;*/
+    background-color: #999;
 }
 .markdown-body .highlight pre::-webkit-scrollbar-track {/*滚动条里面轨道*/
     border-radius: 0;
