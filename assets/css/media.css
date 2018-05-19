@@ -61,6 +61,12 @@
 }
 
 @media screen and ( max-width: 600px ){
+  .top span:first-child{
+      top: 180px;
+      font-size: 30px;
+      font-weight: 450;
+      line-height: 20px;
+  }
   .top-nav{
     display: none;
   }
