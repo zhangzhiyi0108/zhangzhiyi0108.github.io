@@ -7,7 +7,6 @@ tags:
 
 description: ''
 categories:
-- test 
 typora-root-url: ..
 ---
 

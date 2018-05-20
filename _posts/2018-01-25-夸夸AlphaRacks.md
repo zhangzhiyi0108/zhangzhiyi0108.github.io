@@ -7,8 +7,6 @@ tags:
 - 网络
 - CentOS
 description: ''
-categories:
-- 日记
 
 typora-root-url: ..
 ---
