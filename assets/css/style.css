@@ -159,6 +159,21 @@ a{
     top: 330px;
     font-size: 25px;
 }
+.top span:nth-child(4){
+    display: block;
+    width: auto;
+    height: auto;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    font-weight: normal;
+    color: #555;
+    font-family: 'Ubuntu', sans-serif;
+    top: 380px;
+    font-size: 25px;
+}
 .post-list li{
     list-style: none;
     display: block;
