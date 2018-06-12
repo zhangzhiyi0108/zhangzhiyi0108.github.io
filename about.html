@@ -1,0 +1,72 @@
+---
+title: aboutMe
+layout: default
+---
+
+{% include header.html %}
+
+<div class="g-banner tags-banner {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }}" data-theme="{{ site.theme-color }}">
+    <h2>aboutMe</h2>
+</div>
+
+<main class="tags-content">
+
+    <ul class="tags-list">
+        
+        <li  style="text-align: center;">
+                <div class="byMyself" style="margin:0 auto;">
+                    <div class="avatar">
+                        <img src="{{ site.avatar | absolute_url }}" alt="">
+                    </div>
+
+                    </br>
+
+                    <div class="author-name" rel="author" style="font-weight: bolder;">{{ site.author }}</div>
+                    <div class="bio">
+                        <p>{{ site.bio }}</p>
+                    </div>
+                    
+                    </br>
+
+                    {% if site.sns.size > 0 %}
+                    <ul id="sns-links" class="sns-links">
+                        {% for s in site.sns %}
+                        
+                            <a href="{{ s[1] }}" target="_blank">
+                                <i class="iconfont icon-{{ s[0] }}"></i>
+                            </a>
+                        
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    <div class="bio">
+                        <p></p>
+                    </div>
+
+                    </br>
+
+                    {% if site.recommend-tags and site.tags.size>0 %}
+                        {% for tag in site.tags %}
+                        <a href="#{{ tag[0] }}" class="tag">{{ tag[0]}}</a>
+                        {% endfor %}
+                    {% endif %}
+          
+                    {% if site.reward.enable %}
+                      {% include reward.html %}
+                    {% endif %}
+            </div>
+        </li>
+        
+        <!-- <li> -->
+        <!-- {% if site.recommend-tags and site.tags.size>0 %}
+            {% for tag in site.tags %}
+            <a href="#{{ tag[0] }}" class="tag">{{ tag[0]}}</a>
+            {% endfor %}
+        {% endif %} -->
+        <!-- </li> -->
+
+    </ul>
+</main>
+    
+{% include footer.html %}

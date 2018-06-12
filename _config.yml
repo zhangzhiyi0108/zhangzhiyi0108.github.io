@@ -1,34 +1,97 @@
 # Site settings 配置站点
 title: '⌘鸡哥⌘的博客'
-description: 'Just for fun !'
+description: ''
 keyword: '徐金琦, 徐金琦的独立博客, 徐金琦的博客, 前端,  前端博客, javascript, 操作系统, ubuntu, 网络'
 url: 'https://xukimseven.github.io' # your host
 
-# 博主
-author: 'talkCock'
+# if you don't need baseurl, you should leave this value blank.
+baseurl: ''
 
-# 分页
-paginate: 6
-paginatepath: ['page:num']
+# Navigation links
+nav:
+  首页: '/'
+  分类: '/series.html'
+  标签: '/tags.html'
+  关于鸡哥: '/about.html'
+  个人简历: '/resume/index.html'
+  友情链接: '/friendLink.html'
+  同步更新: 'https://xukim777.github.io/'
 
-# since
+# Footer
 footer:
   since: 2018
 
-# nav 中文字符空格：&emsp;
-nav:
-  首页: '/'
-  标签: '/tags.html'
-  # 关于鸡哥: '/about.html'
-  关于鸡哥: '/resume/index.html'
-  友情链接: '/friendLink.html'
+# Author 配置博主信息
+author: '徐金琦'
+nickname: '鸡哥'
+bio: '一个大三的小学生'
+avatar: '/assets/profile.jpeg'
 
-# 网站是否需要搜索
+# Search
 search: true
+
+# Night mode
+nightMode: true
+
+# disqus 评论
+disqus: false
+disqus_url: 'https://xukimseven.disqus.com/embed.js'
+
+#来必力 评论
+livere: true
+livere_uid: MTAyMC8zNDI2OS8xMDgwNg==
+
+# Reward 赞赏功能 by Ray-Eldath
+reward:
+  enable: true
+  reward_comment: ''
+  wechatpay: '../../../assets/scan/wechatpay.jpg'
+  alipay: '../../../assets/scan/alipay.jpg'
+
+# b2t 回到顶部 by Ray-Eldath
+b2t: true
+
+# Share : weibo, qq, wechat, tencent, douban, qzone, linkedin, diandian, facebook, twitter, google
+social-share: true
+social-share-items: ['google', 'qq', 'weibo', 'douban', 'twitter', 'facebook']
+
+# theme color 主题皮肤
+theme-color: 'default'  # pink or default
+
+
+# SNS settings 配置社交网站url: email, weibo, zhihu, twitter, instagram, juejin, github, douban, facebook, dribble, uicn, jianshu, medium, linkedin
+sns:
+  email: 'mailto:xujinqi7@gmail.com'
+  weibo: '//weibo.com/u/5655278647'
+  twitter: '//twitter.com/xukim777'
+  juejin: '//juejin.im/user/5acda494518825556f55c87b'
+  instagram: '//www.instagram.com/xukim777'
+  github: '//github.com/xukimseven'
+
+# Tags 设置标签
+recommend-tags: true # whether or not display recommend-tags on the sidebar
+recommend-condition-size: 20 # a tag will be recommended if the size of it is more than this value
+
+# Build settings
+paginate: 5
+paginate_path: 'page:num'
+exclude: ['node_modules', 'dev', 'package.json', 'gulpfile.js', '.gitignore', 'README.md']
 
 # Markdown
 markdown: kramdown
+highlighter: rouge
 kramdown:
   input: GFM
-# 代码高亮
-highlighter: rouge
+
+# RSS
+RSS: true
+
+# Permalink
+# See: https://github.com/kaeyleo/jekyll-theme-H2O/issues/35
+permalink: /:year/:month/:day/:title.html
+
+# Plugins
+plugins: [jekyll-paginate]
+
+# Hero background patterns (无图片时): circuitBoard, overlappingCircles, food, glamorous, ticTacToe, seaOfClouds
+postPatterns: 'ticTacToe'
