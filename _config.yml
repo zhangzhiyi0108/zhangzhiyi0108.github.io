@@ -22,9 +22,9 @@ footer:
   since: 2018
 
 # Author 配置博主信息
-author: '徐金琦'
-nickname: '鸡哥'
-bio: '一个刚毕业的小孩子'
+author: '张志毅'
+nickname: '宝哥'
+bio: '一个21年刚毕业的小孩子'
 avatar: '/assets/profile.jpeg'
 
 # Search
@@ -61,12 +61,12 @@ theme-color: 'default'  # pink or default
 
 # SNS settings 配置社交网站url: email, weibo, zhihu, twitter, instagram, juejin, github, douban, facebook, dribble, uicn, jianshu, medium, linkedin
 sns:
-  email: 'mailto:xujinqi7@gmail.com'
-  weibo: '//weibo.com/u/5655278647'
-  twitter: '//twitter.com/xukim777'
+  email: '627476942@qq.com'
+  weibo: '//weibo.com'
+  twitter: '//twitter.com/zhangzhiyi'
   juejin: '//juejin.im/user/5acda494518825556f55c87b'
   instagram: '//www.instagram.com/xukim777'
-  github: '//github.com/xukimseven'
+  github: '//github.com/zhangzhiyi0108'
 
 # Tags 设置标签
 recommend-tags: true # whether or not display recommend-tags on the sidebar
