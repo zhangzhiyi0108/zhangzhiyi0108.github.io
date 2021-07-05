@@ -2,7 +2,7 @@
 title: '张张的博客'
 description: ''
 keyword: '张志毅, 张志毅的独立博客, 张志毅的博客, 前端,  前端博客, javascript, 操作系统, ubuntu, 网络'
-url: 'https://xukimseven.github.io' # your host
+url: 'https://zhangzhiyi0108.github.io' # your host
 
 # if you don't need baseurl, you should leave this value blank.
 baseurl: ''
@@ -35,7 +35,7 @@ nightMode: true
 
 # disqus 评论
 disqus: false
-disqus_url: 'https://xukimseven.disqus.com/embed.js'
+disqus_url: 'https://zhangzhiyi0108.disqus.com/embed.js'
 
 #来必力 评论
 livere: true
@@ -64,8 +64,8 @@ sns:
   email: '627476942@qq.com'
   weibo: '//weibo.com'
   twitter: '//twitter.com/zhangzhiyi'
-  juejin: '//juejin.im/user/5acda494518825556f55c87b'
-  instagram: '//www.instagram.com/xukim777'
+  juejin: '//juejin.cn/user/1820446985291543'
+  instagram: '//www.instagram.com/'
   github: '//github.com/zhangzhiyi0108'
 
 # Tags 设置标签
