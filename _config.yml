@@ -1,7 +1,7 @@
 # Site settings 配置站点
-title: '⌘鸡哥⌘的博客'
+title: '张张的博客'
 description: ''
-keyword: '徐金琦, 徐金琦的独立博客, 徐金琦的博客, 前端,  前端博客, javascript, 操作系统, ubuntu, 网络'
+keyword: '张志毅, 张志毅的独立博客, 徐金琦的博客, 前端,  前端博客, javascript, 操作系统, ubuntu, 网络'
 url: 'https://xukimseven.github.io' # your host
 
 # if you don't need baseurl, you should leave this value blank.
@@ -15,7 +15,7 @@ nav:
   关于鸡哥: '/about.html'
   个人简历: '/resume/index.html'
   友情链接: '/friendLink.html'
-  同步更新: 'https://xukim777.github.io/'
+  同步更新: 'https://zhangzhiyi0108.github.io/'
 
 # Footer
 footer:
@@ -24,7 +24,7 @@ footer:
 # Author 配置博主信息
 author: '徐金琦'
 nickname: '鸡哥'
-bio: '一个大三的小学生'
+bio: '一个刚毕业的小孩子'
 avatar: '/assets/profile.jpeg'
 
 # Search
