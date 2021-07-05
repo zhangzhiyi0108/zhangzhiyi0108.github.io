@@ -4,7 +4,7 @@ typora-root-url: ./
 
 ## 基于 jekyll-theme-H2O 主题的个人修改
 
-首先，感谢原博主 [kaeyleo( 悟空 )](https://github.com/kaeyleo) 为我们提供了这么好的主题模板。
+首先，感谢原博主 [xukim777](https://xukim777.github.io) 为我们提供了这么好的主题模板。
 
 原版下载地址 [jekyll-theme-H2O](https://github.com/kaeyleo/jekyll-theme-H2O)
 
