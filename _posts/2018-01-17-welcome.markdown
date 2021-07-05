@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to XuKimSeven's Blog!"
+title:  "Welcome to zhangzhiyi0108's Blog!"
 
 date:   2018-1-17 18:04:13
 tags:
