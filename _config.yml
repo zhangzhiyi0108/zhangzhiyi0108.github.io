@@ -12,7 +12,7 @@ nav:
   首页: '/'
   分类: '/series.html'
   标签: '/tags.html'
-  关于宝哥: '/about.html'
+  关于张张: '/about.html'
   个人简历: '/resume/index.html'
   友情链接: '/friendLink.html'
   同步更新: 'https://zhangzhiyi0108.github.io/'
@@ -23,7 +23,7 @@ footer:
 
 # Author 配置博主信息
 author: '张志毅'
-nickname: '宝哥'
+nickname: '张张'
 bio: '一个21年刚毕业的小孩子'
 avatar: '/assets/profile.jpeg'
 
