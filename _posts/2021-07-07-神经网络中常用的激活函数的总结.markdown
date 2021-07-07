@@ -10,7 +10,7 @@ tags:
 description: ''
 categories:
 - 经验
-cover: 'https://zhangzhiyi0108.github.io/assets/img/2021-07-07-神经网络中常用的激活函数的总结/1.png'
+cover: 'https://zhangzhiyi0108.github.io/assets/img/2021-07-07-神经网络中常用的激活函数的总结/0.png'
 typora-root-url: ..
 ---
   
