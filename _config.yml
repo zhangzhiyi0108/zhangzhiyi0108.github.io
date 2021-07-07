@@ -1,7 +1,7 @@
 # Site settings 配置站点
 title: '张张的博客'
 description: ''
-keyword: '张志毅, 张志毅的独立博客, 张志毅的博客, 前端,  前端博客, javascript, 操作系统, ubuntu, 网络'
+keyword: '张志毅, 张志毅的独立博客, 张志毅的博客, 自然语言处理,  人工智能博客, 深度学习, 机器学习, ubuntu, 网络'
 url: 'https://zhangzhiyi0108.github.io' # your host
 
 # if you don't need baseurl, you should leave this value blank.
@@ -19,7 +19,7 @@ nav:
 
 # Footer
 footer:
-  since: 2018
+  since: 2021
 
 # Author 配置博主信息
 author: '张志毅'
