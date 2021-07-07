@@ -12,6 +12,8 @@ categories:
 - 经验
 cover: 'https://zhangzhiyi0108.github.io/assets/img/2021-07-07-神经网络中常用的激活函数的总结/0.png'
 typora-root-url: ..
+---
+  
 # 前言
 
 提示：这里本人也是在学习过程中，欢迎指出其中的错误和不足。抱拳！！
