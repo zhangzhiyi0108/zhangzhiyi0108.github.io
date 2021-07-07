@@ -1,0 +1,132 @@
+##神经网络中常用的激活函数的总结
+@[TOC](文章目录)
+<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
+
+# 前言
+
+<font color=#999AAA >提示：这里本人也是在学习过程中，欢迎指出其中的错误和不足。抱拳！！</font>
+在学习神经网络，机器学习的过程中，经常使用或者听说激活函数这个名词，例如：有时候在一起讨论得时候会说“使用sigmoid函数比Relu函数要好”，那么我们就来详细了解一下激活函数的知识！
+<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
+
+
+# 一、什么是激活函数？
+首先要了解神经网络的基本模型（[人工神经网络简介](https://clyyuanzi.gitbooks.io/julymlnotes/content/dl_nn.html)）([人工神经网络基本原理](https://blog.csdn.net/tyhj_sf/article/details/54134210))单一的神经元模型如下图：
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201116093952938.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA3MjgxMA==,size_16,color_FFFFFF,t_70#pic_center)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201116094353506.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA3MjgxMA==,size_16,color_FFFFFF,t_70#pic_center)
+上图中（x_1, ..., x_n）是信号向量，它和权重（w_1, ..., w_n）相乘。然后再累加（即求和 + 偏置项 b）。最后，激活函数 f 应用于累加的总和。
+
+注意：权重（w_1, ..., w_n）和偏置项 b 对输入信号进行线性变换。而激活函数对该信号进行非线性变换，这使得我们可以任意学习输入和输出之间的复杂变换。
+
+
+# 二、神经网络如何学习？
+我们有必要对神经网络如何学习有一个基本了解。假设网络的期望输出是 y（标注值），但网络实际输出的是 y'（预测值）。预测输出和期望输出之间的差距（y - y'）可以转化成一种度量，即损失函数（J）。神经网络犯大量错误时，损失很高；神经网络犯错较少时，损失较低。训练目标就是找到使训练集上的损失函数最小化的权重矩阵和偏置向量。
+
+在下图中，损失函数的形状像一个碗。在训练过程的任一点上，损失函数关于梯度的偏导数是那个位置的梯度。沿偏导数预测的方向移动，就可以到达谷底，使损失函数最小化。使用函数的偏导数迭代地寻找局部极小值的方法叫作梯度下降。
+
+如图：
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201116094630301.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA3MjgxMA==,size_16,color_FFFFFF,t_70#pic_center)
+人工神经网络中的权重使用反向传播的方法进行更新。损失函数关于梯度的偏导数也用于更新权重。从某种意义上来说，神经网络中的误差根据求导的链式法则执行反向传播。这通过迭代的方式来实施，经过多次迭代后，损失函数达到极小值，其导数变为 0。
+
+# 三、为什么要引入激活函数？
+如果不用激励函数（其实相当于激励函数是f(x) = x），在这种情况下你每一层输出都是上层输入的线性函数，很容易验证，无论你神经网络有多少层，输出都是输入的线性组合，与没有隐藏层效果相当，这种情况就是最原始的感知机（Perceptron）了。
+
+正因为上面的原因，我们决定引入非线性函数作为激励函数，这样深层神经网络就有意义了（不再是输入的线性组合，可以逼近任意函数）。最早的想法是sigmoid函数或者tanh函数，输出有界，很容易充当下一层输入（以及一些人的生物解释balabala）。激活函数的作用是为了增加神经网络模型的非线性。否则你想想，没有激活函数的每层都相当于矩阵相乘。就算你叠加了若干层之后，无非还是个矩阵相乘罢了。所以你没有非线性结构的话，根本就算不上什么神经网络。
+
+# 四、常见的激活函数总结(非线性)
+激活函数是用来加入非线性因素的，因为线性模型的表达能力不够。当我在看代码的时候，激活函数所做的事情其实就是将经过卷积核卷积后的神经网络的输出映射为特定的边界内的值，这点可以从下面的激活函数的图里轻易的看出。
+
+## 1. Sigmoid
+Sigmoid又叫作 Logistic 激活函数，它将实数值压缩进 0 到 1 的区间内，还可以在预测概率的输出层中使用。该函数将大的负数转换成 0，将大的正数转换成 1。数学公式为：
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201116095517200.png#pic_center)
+下图展示了 Sigmoid 函数及其导数：
+
+**Sigmoid 激活函数**
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201116095600507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA3MjgxMA==,size_16,color_FFFFFF,t_70#pic_center)
+
+**Sigmoid 导数**
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201116095727976.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA3MjgxMA==,size_16,color_FFFFFF,t_70#pic_center)
+
+**Sigmoid 函数的三个主要缺陷：**
+1. **梯度消失**：注意：Sigmoid 函数趋近 0 和 1 的时候变化率会变得平坦，也就是说，Sigmoid 的梯度趋近于 0。神经网络使用 Sigmoid 激活函数进行反向传播时，输出接近 0 或 1 的神经元其梯度趋近于 0。这些神经元叫作饱和神经元。因此，这些神经元的权重不会更新。此外，与此类神经元相连的神经元的权重也更新得很慢。该问题叫作梯度消失。因此，想象一下，如果一个大型神经网络包含 Sigmoid 神经元，而其中很多个都处于饱和状态，那么该网络无法执行反向传播。
+ 2. **不以零为中心**：Sigmoid 输出不以零为中心的。
+ 3.  **计算成本高昂**：exp() 函数与其他非线性激活函数相比，计算成本高昂。
+## 2. Tanh
+**Tanh非线性激活函数解决了 Sigmoid 函数中值域期望不为 0 的问题。**
+
+**Tanh 激活函数**
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201116100457863.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA3MjgxMA==,size_16,color_FFFFFF,t_70#pic_center)
+
+**Tanh 导数**
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201116100526382.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA3MjgxMA==,size_16,color_FFFFFF,t_70#pic_center)
+Tanh 激活函数又叫作双曲正切激活函数（hyperbolic tangent activation function）。与 Sigmoid 函数类似，Tanh 函数也使用真值，但 Tanh 函数将其压缩至-1 到 1 的区间内。与 Sigmoid 不同，Tanh 函数的输出以零为中心，因为区间在-1 到 1 之间。你可以将 Tanh 函数想象成两个 Sigmoid 函数放在一起。在实践中，Tanh 函数的使用优先性高于 Sigmoid 函数。负数输入被当作负值，零输入值的映射接近零，正数输入被当作正值。唯一的缺点是：
+1. Tanh 函数也会有梯度消失的问题，因此在饱和时也会「杀死」梯度。
+## 3.修正线性单元（ReLU）
+该函数**解决梯度消失**问题，该函数明显优于前面两个函数，是现在使用最广泛的函数。
+
+**ReLU 激活函数**
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201116100859982.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA3MjgxMA==,size_16,color_FFFFFF,t_70#pic_center)
+
+**ReLU 导数**
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201116100931615.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA3MjgxMA==,size_16,color_FFFFFF,t_70#pic_center)
+
+从上图可以看到，ReLU 是从底部开始半修正的一种函数。数学公式为：
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201116101307433.png#pic_center)
+
+
+当输入 x<0 时，输出为 0，当 x> 0 时，输出为 x。该激活函数使网络更快速地收敛。它不会饱和，即它可以对抗梯度消失问题，至少在正区域（x> 0 时）可以这样，因此神经元至少在一半区域中不会把所有零进行反向传播。由于使用了简单的阈值化（thresholding），ReLU 计算效率很高。但是 ReLU 神经元也存在一些缺点：
+
+1. **不以零为中心**：和 Sigmoid 激活函数类似，ReLU 函数的输出不以零为中心。
+
+2. **前向传导（forward pass）过程中**，如果 x < 0，则神经元保持非激活状态，且在后向传导（backward pass）中「杀死」梯度。这样权重无法得到更新，网络无法学习。当 x = 0 时，该点的梯度未定义，但是这个问题在实现中得到了解决，通过采用左侧或右侧的梯度的方式。
+
+## 4. Leaky ReLU
+为了**解决 ReLU 激活函数中的梯度消失**问题，当 x < 0 时，我们使用 Leaky ReLU——该函数试图修复 dead ReLU 问题。下面我们就来详细了解 Leaky ReLU。
+
+**Leaky ReLU 激活函数**
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201116101234503.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA3MjgxMA==,size_16,color_FFFFFF,t_70#pic_center)
+
+该函数试图缓解 dead ReLU 问题。数学公式为：
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201116101254851.png#pic_center)
+
+
+Leaky ReLU 的概念是：当 x < 0 时，它得到 0.1 的正梯度。该函数一定程度上缓解了 dead ReLU 问题，但是使用该函数的结果并不连贯。尽管它具备 ReLU 激活函数的所有特征，如计算高效、快速收敛、在正区域内不会饱和。
+
+## 5. Parametric ReLU
+Leaky ReLU 可以得到更多扩展。不让 x 乘常数项，而是让 x 乘超参数，这看起来比 Leaky ReLU 效果要好。该扩展就是 Parametric ReLU。
+
+PReLU 函数的数学公式为：
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201116101421599.png#pic_center)
+
+其中是超参数。这里引入了一个随机的超参数，它可以被学习，因为你可以对它进行反向传播。这使神经元能够选择负区域最好的梯度，有了这种能力，它们可以变成 ReLU 或 Leaky ReLU。
+
+总之，最好使用 ReLU，但是你可以使用 Leaky ReLU 或 Parametric ReLU 实验一下，看看它们是否更适合你的问题。
+
+## 6. Swish
+
+**Swish 激活函数**
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2020111610154686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA3MjgxMA==,size_16,color_FFFFFF,t_70#pic_center)
+
+该函数又叫作自门控激活函数，它近期由谷歌的研究者发布，数学公式为：
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201116101626924.png#pic_center)
+
+根据论文（https://arxiv.org/abs/1710.05941v1），Swish 激活函数的性能优于 ReLU 函数。
+
+根据上图，我们可以观察到在 x 轴的负区域曲线的形状与 ReLU 激活函数不同，因此，Swish 激活函数的输出可能下降，即使在输入值增大的情况下。大多数激活函数是单调的，即输入值增大的情况下，输出值不可能下降。而 Swish 函数为 0 时具备单侧有界（one-sided boundedness）的特性，它是平滑、非单调的。
+
+参考：
+[一文概览深度学习中的激活函数](https://www.jiqizhixin.com/articles/2017-11-02-26)
+[人工神经网络基本原理](https://blog.csdn.net/tyhj_sf/article/details/54134210)
+[https://clyyuanzi.gitbooks.io/julymlnotes/content/dl_nn.html](https://clyyuanzi.gitbooks.io/julymlnotes/content/dl_nn.html)
