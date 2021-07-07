@@ -2,11 +2,11 @@
 layout: post
 title:  "神经网络中常用的激活函数的总结"
 subtitle: 'Collection Of Color'
-date:   2018-4-11 08:44:13
+date:   2021-07-07 08:44:13
 tags:
-- php
-- js
-- 前端设计
+- 神经网络
+- 激活函数
+- AI
 description: ''
 categories:
 - 经验
